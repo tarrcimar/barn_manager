@@ -1,0 +1,15 @@
+- Istálló neve
+
+- Kenelek (Boxok) száma
+- Minden box -> 1 ló / ? kecske
+- Ha a kenelben ló van :
+	- Ló neve
+	-Apja, anyja neve
+	- Születési dátum
+	- Neme (kanca/csődör)
+	- Mozgásigénye
+	- Megjegyzés: (előélet, orvosi vizsgálatai)
+
+-Takarmány nyilvántartás
+	- széna / szalma mennyisége
+	- kaja mennyisége: (pl.: alma)
