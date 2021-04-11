@@ -9,7 +9,8 @@
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
-      <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <property name="hibernate.jdbc.time_zone" value="UTC"/>
+      <property name="hibernate.hbm2ddl.auto" value="create"/>
       <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:h2:file:~/my_database2"/>
       <property name="javax.persistence.jdbc.user" value="user"/>
@@ -17,3 +18,11 @@
     </properties>
   </persistence-unit>
 </persistence>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 version="2.0">
+<persistence-unit-metadata>
+  <persistence-unit-defaults>
+    <access>FIELD</access>
+  </persistence-unit-defaults>
+</persistence-unit-metadata>
+</entity-mappings>
