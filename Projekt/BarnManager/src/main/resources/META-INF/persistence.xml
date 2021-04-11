@@ -4,6 +4,8 @@
     <description>Hibernate EntityManager Demo</description>
     <class>example.Main</class>
     <class>example.model.User</class>
+    <class>example.model.Barn</class>
+    <class>example.model.Animal</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>

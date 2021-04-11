@@ -1,12 +1,13 @@
 package example.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class User {
     private Long id;
 
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     public Long getId() {
         return id;
@@ -27,15 +28,15 @@ public class User {
         this.userName = userName;
     }
 
-    private String userPassword;
+    private String password;
 
     @Basic
-    public String getUserPassword() {
-        return userPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setPassword(String userPassword) {
+        this.password = userPassword;
     }
 
     private GenderType gender;
@@ -52,9 +53,21 @@ public class User {
 
     public User(){}
 
-    public User(String userName, String userPassword, GenderType gender){
+    public User(String userName, String password, GenderType gender){
         this.userName = userName;
-        this.userPassword = userPassword;
+        this.password = password;
         this.gender = gender;
+    }
+
+    private Set<Barn> barns;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    public Set<Barn> getBarns() {
+        return barns;
+    }
+
+    public void setBarns(Set<Barn> barns) {
+        this.barns = barns;
     }
 }
