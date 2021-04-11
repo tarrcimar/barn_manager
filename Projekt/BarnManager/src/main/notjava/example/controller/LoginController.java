@@ -61,7 +61,7 @@ public class LoginController {
 
             List<User> users = uDaO.getUsers(); //if the username and password matches an existing user, switch to main window
             for (User user : users){
-                if(user.getUserName().equals(username) && user.getPassword().equals(password)){
+                if(user.getUsername().equals(username) && user.getPassword().equals(password)){
                     System.out.println("Found user!");
                     userId = user.getId();
                     found = true;

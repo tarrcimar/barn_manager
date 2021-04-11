@@ -17,15 +17,15 @@ public class User {
         this.id = id;
     }
 
-    private String userName;
+    private String username;
 
     @Basic
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String userName) {
+        this.username = userName;
     }
 
     private String password;
@@ -54,7 +54,7 @@ public class User {
     public User(){}
 
     public User(String userName, String password, GenderType gender){
-        this.userName = userName;
+        this.username = userName;
         this.password = password;
         this.gender = gender;
     }
