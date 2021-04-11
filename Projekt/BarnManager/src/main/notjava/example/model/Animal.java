@@ -50,4 +50,37 @@ public class Animal {
     public void setBarn(Barn barn) {
         this.barn = barn;
     }
+
+    private String dateOfBirth;
+
+    @Basic
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    private Integer activity;
+
+    @Basic
+    public Integer getActivity() {
+        return activity;
+    }
+
+    public void setActivity(Integer activity) {
+        this.activity = activity;
+    }
+
+    private String comment;
+
+    @Basic
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 }
