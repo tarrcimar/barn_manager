@@ -5,10 +5,10 @@ import java.util.Set;
 
 @Entity
 public class Barn {
-    private Long id;
-
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
+    private Long id;
+
     public Long getId() {
         return id;
     }
@@ -17,9 +17,9 @@ public class Barn {
         this.id = id;
     }
 
+    @Basic
     private String name;
 
-    @Basic
     public String getName() {
         return name;
     }
@@ -28,10 +28,10 @@ public class Barn {
         this.name = name;
     }
 
-    private User user;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
+    private User user;
+
     public User getUser() {
         return user;
     }
@@ -40,10 +40,10 @@ public class Barn {
         this.user = user;
     }
 
-    private Set<Animal> animals;
-
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "barn_id")
+    private Set<Animal> animals;
+
     public Set<Animal> getAnimals() {
         return animals;
     }
@@ -52,9 +52,9 @@ public class Barn {
         this.animals = animals;
     }
 
+    @Basic
     private Integer animalCount;
 
-    @Basic
     public Integer getAnimalCount() {
         return animalCount;
     }

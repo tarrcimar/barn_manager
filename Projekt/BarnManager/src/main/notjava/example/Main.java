@@ -1,6 +1,9 @@
 package example;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.logging.Level;
@@ -47,6 +50,9 @@ public class Main extends Application {
         final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
         final EntityManager entityManager = entityManagerFactory.createEntityManager();
 
+        LocalDate now = LocalDate.now();
+
+
         User pista = new User("pista", "password", GenderType.MALE);
 
         Barn first = new Barn();
@@ -62,6 +68,7 @@ public class Main extends Application {
         elephant.setGender(GenderType.FEMALE);
         Animal giraffe = new Animal();
         giraffe.setType("Zsiráf");
+        giraffe.setAddedOn(now);
         giraffe.setGender(GenderType.MALE);
         Set<Animal> animalSet = new HashSet<>();
         animalSet.add(elephant);
@@ -87,7 +94,6 @@ public class Main extends Application {
         //entityManager.persist(zoo2);
         entityManager.getTransaction().commit();
         */
-
         //stopDatabase();
     }
 

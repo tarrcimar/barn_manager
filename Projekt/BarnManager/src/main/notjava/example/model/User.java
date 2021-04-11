@@ -5,10 +5,10 @@ import java.util.Set;
 
 @Entity
 public class User {
-    private Long id;
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    private Long id;
+
     public Long getId() {
         return id;
     }
@@ -17,9 +17,10 @@ public class User {
         this.id = id;
     }
 
-    private String username;
 
     @Basic
+    private String username;
+
     public String getUsername() {
         return username;
     }
@@ -28,9 +29,10 @@ public class User {
         this.username = userName;
     }
 
+    @Basic
     private String password;
 
-    @Basic
+
     public String getPassword() {
         return password;
     }
@@ -39,10 +41,11 @@ public class User {
         this.password = userPassword;
     }
 
+    @Basic
+    @Enumerated(EnumType.STRING)
     private GenderType gender;
 
-    @Basic
-    @Enumerated(EnumType.ORDINAL)
+
     public GenderType getGender() {
         return gender;
     }
@@ -59,10 +62,11 @@ public class User {
         this.gender = gender;
     }
 
-    private Set<Barn> barns;
-
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
+    private Set<Barn> barns;
+
+
     public Set<Barn> getBarns() {
         return barns;
     }

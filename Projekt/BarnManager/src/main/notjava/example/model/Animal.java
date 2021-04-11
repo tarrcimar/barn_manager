@@ -1,13 +1,17 @@
 package example.model;
 
 import javax.persistence.*;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 public class Animal {
-    private Long id;
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+
+
     public Long getId() {
         return id;
     }
@@ -16,9 +20,9 @@ public class Animal {
         this.id = id;
     }
 
+    @Basic
     private String type;
 
-    @Basic
     public String getType() {
         return type;
     }
@@ -27,10 +31,11 @@ public class Animal {
         this.type = type;
     }
 
+    @Basic
+    @Enumerated(EnumType.STRING)
     private GenderType gender;
 
-    @Basic
-    @Enumerated(EnumType.ORDINAL)
+
     public GenderType getGender() {
         return gender;
     }
@@ -39,10 +44,10 @@ public class Animal {
         this.gender = gender;
     }
 
-    private Barn barn;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "barn_id")
+    private Barn barn;
+
     public Barn getBarn() {
         return barn;
     }
@@ -51,9 +56,9 @@ public class Animal {
         this.barn = barn;
     }
 
+    @Basic
     private String dateOfBirth;
 
-    @Basic
     public String getDateOfBirth() {
         return dateOfBirth;
     }
@@ -62,9 +67,9 @@ public class Animal {
         this.dateOfBirth = dateOfBirth;
     }
 
+    @Basic
     private Integer activity;
 
-    @Basic
     public Integer getActivity() {
         return activity;
     }
@@ -73,14 +78,25 @@ public class Animal {
         this.activity = activity;
     }
 
+    @Basic
     private String comment;
 
-    @Basic
     public String getComment() {
         return comment;
     }
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    @Basic
+    private LocalDate addedOn;
+
+    public LocalDate getAddedOn() {
+        return addedOn;
+    }
+
+    public void setAddedOn(LocalDate addedOn) {
+        this.addedOn = addedOn;
     }
 }
