@@ -4,6 +4,7 @@ import example.Database.JpaUserDAO;
 import example.Database.UserDAO;
 import example.model.GenderType;
 import example.model.User;
+import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,6 +23,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class RegisterController{
+
+    @FXML
+    private AnchorPane rootPane;
 
     @FXML
     private TextField registerUserName;
@@ -37,6 +42,8 @@ public class RegisterController{
 
     @FXML
     void initialize(){
+        FadeController fadeController = new FadeController();
+
         genderBox.getItems().add("Male");
         genderBox.getItems().add("Female");
 
@@ -58,18 +65,7 @@ public class RegisterController{
             }
 
             //change back to login.fxml
-            Stage stage;
-            Parent root;
-
-            stage = (Stage)registerRegisterButton.getScene().getWindow();
-            try {
-                root = FXMLLoader.load(getClass().getResource("/example/view/login.fxml"));
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            fadeController.fadeOut("/example/view/login.fxml", rootPane);
         });
 
     }
