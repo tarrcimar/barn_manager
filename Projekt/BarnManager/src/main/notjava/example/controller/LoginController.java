@@ -4,6 +4,7 @@ import example.Database.JpaUserDAO;
 import example.Database.UserDAO;
 import example.model.User;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -15,6 +16,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class LoginController {
+    private long userId;
+
 
     @FXML
     private AnchorPane rootPane;
@@ -44,6 +47,8 @@ public class LoginController {
 
     @FXML
     void initialize() {
+        FXMLLoader loader = new FXMLLoader();
+        MainWindowController window = new MainWindowController();
 
         FadeController fadeController = new FadeController();
 
@@ -58,12 +63,17 @@ public class LoginController {
             for (User user : users){
                 if(user.getUserName().equals(username) && user.getPassword().equals(password)){
                     System.out.println("Found user!");
+                    userId = user.getId();
                     found = true;
                 }
             }
 
+
+
             if(!found) feedbackLabel.setVisible(true); //if user does not exist, provide an error message
             else{
+                System.out.println("In login: " + userId);
+                window.setUserId(userId);
                 fadeController.fadeOut("/example/view/mainWindow.fxml", rootPane);
             }
 
