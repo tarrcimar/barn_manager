@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.controller.RegisterController">
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.controller.RegisterController">
    <children>
       <TextField fx:id="registerUserName" layoutX="255.0" layoutY="159.0" maxHeight="25.0" prefHeight="25.0" prefWidth="190.0" promptText="Username" />
       <TextField fx:id="registerPassword" layoutX="254.0" layoutY="219.0" maxHeight="25.0" prefHeight="25.0" prefWidth="190.0" promptText="Password" />
