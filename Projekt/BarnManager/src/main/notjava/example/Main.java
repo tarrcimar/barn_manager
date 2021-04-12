@@ -91,7 +91,6 @@ public class Main extends Application {
 
         entityManager.getTransaction().begin();
         entityManager.persist(pista);
-        //entityManager.persist(zoo2);
         entityManager.getTransaction().commit();
         */
         //stopDatabase();
