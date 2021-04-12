@@ -46,7 +46,6 @@ public class Main extends Application {
         }
         launch(args);
 
-        /*
         final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
         final EntityManager entityManager = entityManagerFactory.createEntityManager();
 
@@ -91,9 +90,8 @@ public class Main extends Application {
 
         entityManager.getTransaction().begin();
         entityManager.persist(pista);
-        //entityManager.persist(zoo2);
         entityManager.getTransaction().commit();
-        */
+
         //stopDatabase();
     }
 
