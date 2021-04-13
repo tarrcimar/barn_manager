@@ -7,6 +7,7 @@ import example.model.User;
 import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -35,6 +36,10 @@ public class RegisterController{
 
     @FXML
     private Button registerRegisterButton;
+
+    @FXML
+    private Button registerBackToLoginButton;
+
 
 
     @FXML
@@ -71,4 +76,10 @@ public class RegisterController{
     }
 
 
+    public void backToLogin(ActionEvent actionEvent) throws IOException {
+
+        FadeController fadeController = new FadeController();
+        fadeController.fadeOut("/example/view/login.fxml", rootPane);
+
+    }
 }
