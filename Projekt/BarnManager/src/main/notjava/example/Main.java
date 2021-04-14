@@ -53,7 +53,7 @@ public class Main extends Application {
         LocalDate now = LocalDate.now();
 
 
-        User pista = new User("pista", "password", GenderType.MALE);
+        User pista = new User("pista", "password");
 
         Barn first = new Barn();
         first.setName("Első");
