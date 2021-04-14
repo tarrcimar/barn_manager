@@ -41,25 +41,12 @@ public class User {
         this.password = userPassword;
     }
 
-    @Basic
-    @Enumerated(EnumType.STRING)
-    private GenderType gender;
-
-
-    public GenderType getGender() {
-        return gender;
-    }
-
-    public void setGender(GenderType gender) {
-        this.gender = gender;
-    }
 
     public User(){}
 
-    public User(String userName, String password, GenderType gender){
+    public User(String userName, String password){
         this.username = userName;
         this.password = password;
-        this.gender = gender;
     }
 
     @OneToMany(cascade = CascadeType.ALL)
