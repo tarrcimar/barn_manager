@@ -29,7 +29,7 @@
          </children>
       </AnchorPane>
       <Hyperlink fx:id="signInLink" layoutX="328.0" layoutY="356.0" text="Sign in" />
-      <Label fx:id="passwordMatchLabel" layoutX="278.0" layoutY="282.0" text="Passwords do not match!" textFill="RED">
+      <Label fx:id="passwordMatchLabel" layoutX="278.0" layoutY="286.0" text="Passwords do not match!" textFill="RED" visible="false">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

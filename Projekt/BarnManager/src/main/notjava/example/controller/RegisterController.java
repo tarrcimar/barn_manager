@@ -60,7 +60,8 @@ public class RegisterController{
     @FXML
     void initialize(){
         signInLink.setOnAction(actionEvent -> changeToLogin());
-
+        tooltipUser.setText("3-18 characters long. Has to begin and end with alphanumeric.");
+        registerUserName.setTooltip(tooltipUser);
 
         registerRegisterButton.setOnAction(actionEvent -> { // when button is clicked, create a new user
             boolean passwordMatch = false;
@@ -78,8 +79,6 @@ public class RegisterController{
                 passwordMatchLabel.setVisible(false);
             }
             if(!isValid(username)){
-                tooltipUser.setText("3-18 characters long. Has to begin and end with alphanumeric.");
-                registerUserName.setTooltip(tooltipUser);
 
                 registerUserName.setText("");
                 registerUserName.setPromptText("Wrong Username Format");
