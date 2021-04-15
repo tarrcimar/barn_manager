@@ -24,13 +24,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegisterController{
-    private static final String USERNAME_PATTERN =
+    public static final String USERNAME_PATTERN =
             "^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$";
-    private static final Pattern usernamePattern = Pattern.compile(USERNAME_PATTERN);
+    public static final Pattern usernamePattern = Pattern.compile(USERNAME_PATTERN);
 
-    private static final String PASSWORD_PATTERN =
+    public static final String PASSWORD_PATTERN =
             "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$";
-    private static final Pattern passwordPattern = Pattern.compile(PASSWORD_PATTERN);
+    public static final Pattern passwordPattern = Pattern.compile(PASSWORD_PATTERN);
 
 
     @FXML
@@ -60,8 +60,13 @@ public class RegisterController{
     @FXML
     void initialize(){
         signInLink.setOnAction(actionEvent -> changeToLogin());
+
         tooltipUser.setText("3-18 characters long. Has to begin and end with alphanumeric.");
         registerUserName.setTooltip(tooltipUser);
+
+        tooltipPassword.setText("8 characters long. 1 uppercase, 1 lowercase, 1 number.");
+        registerPassword.setTooltip(tooltipPassword);
+        registerPassword2.setTooltip(tooltipPassword);
 
         registerRegisterButton.setOnAction(actionEvent -> { // when button is clicked, create a new user
             boolean passwordMatch = false;
@@ -78,17 +83,12 @@ public class RegisterController{
                 passwordMatch = true;
                 passwordMatchLabel.setVisible(false);
             }
-            if(!isValid(username)){
-
+            if(!isValidUsername(username)){
                 registerUserName.setText("");
                 registerUserName.setPromptText("Wrong Username Format");
             } else usernameCorrect = true;
 
             if(!isValidPassword(password) || !isValidPassword(password2)){
-                tooltipPassword.setText("8 characters long. 1 uppercase, 1 lowercase, 1 number.");
-                registerPassword.setTooltip(tooltipPassword);
-                registerPassword2.setTooltip(tooltipPassword);
-
                 wrongFormatText(registerPassword);
                 wrongFormatText(registerPassword2);
 
@@ -123,7 +123,7 @@ public class RegisterController{
         changeToLogin();
     }
 
-    public static boolean isValid(final String username){
+    public static boolean isValidUsername(final String username){
         Matcher matcher = usernamePattern.matcher(username);
         return matcher.matches();
     }
@@ -133,7 +133,7 @@ public class RegisterController{
         return matcher.matches();
     }
 
-    public static void wrongFormatText(PasswordField field){
+    public void wrongFormatText(PasswordField field){
         field.setText("");
         field.setPromptText("Wrong Password format!");
     }
