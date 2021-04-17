@@ -24,11 +24,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegisterController{
-    public static final String USERNAME_PATTERN =
+    public static final String USERNAME_PATTERN = //start with an alphanumeric character, followed by ._- or a-zA-Z0-9, at least
+                                                 //at least 3, but maximum 18 characters long, close with alphanumeric
             "^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$";
     public static final Pattern usernamePattern = Pattern.compile(USERNAME_PATTERN);
 
-    public static final String PASSWORD_PATTERN =
+    public static final String PASSWORD_PATTERN = //minimum 8 characters in length, has to contain at last one digit, one upper, one lowercase
+                                                  //alphanumeric character
             "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$";
     public static final Pattern passwordPattern = Pattern.compile(PASSWORD_PATTERN);
 
@@ -59,8 +61,10 @@ public class RegisterController{
 
     @FXML
     void initialize(){
+        //when the link is clicked, go back to the login screen
         signInLink.setOnAction(actionEvent -> changeToLogin());
 
+        //set up the tooltips for username and password fields
         tooltipUser.setText("3-18 characters long. Has to begin and end with alphanumeric.");
         registerUserName.setTooltip(tooltipUser);
 
@@ -76,6 +80,7 @@ public class RegisterController{
             String password = registerPassword.getText().trim();
             String password2 = registerPassword2.getText().trim();
 
+            //check if passwords match
             if(!password.equals(password2)){
                 System.out.println(password.equals(password2));
                 passwordMatchLabel.setVisible(true);
@@ -83,18 +88,21 @@ public class RegisterController{
                 passwordMatch = true;
                 passwordMatchLabel.setVisible(false);
             }
+
+            //check if username is valid
             if(!isValidUsername(username)){
                 registerUserName.setText("");
                 registerUserName.setPromptText("Wrong Username Format");
             } else usernameCorrect = true;
 
+            //check if passwords are valid according to the regex defined above
             if(!isValidPassword(password) || !isValidPassword(password2)){
-                wrongFormatText(registerPassword);
-                wrongFormatText(registerPassword2);
+                wrongFormatPassword(registerPassword);
+                wrongFormatPassword(registerPassword2);
 
             } else passwordCorrect = true;
 
-
+            //if everything as expected, create user
             if(usernameCorrect && passwordCorrect && passwordMatch) {
                 System.out.println("Why doe");
                 User newUser = new User(username, password);
@@ -105,11 +113,13 @@ public class RegisterController{
 
     }
 
+    //change the screen back to the login screen
     private void changeToLogin(){
         FadeController fadeController = new FadeController();
         fadeController.fadeOut("/example/view/login.fxml", rootPane);
     }
 
+    //create the user by calling the DAO and writing it to the database
     private void createUser(User u){
         try {
             try(UserDAO uDao = new JpaUserDAO()){
@@ -133,7 +143,8 @@ public class RegisterController{
         return matcher.matches();
     }
 
-    public void wrongFormatText(PasswordField field){
+    //if the passwords does not satisfy the regex, clear the field
+    public void wrongFormatPassword(PasswordField field){
         field.setText("");
         field.setPromptText("Wrong Password format!");
     }
