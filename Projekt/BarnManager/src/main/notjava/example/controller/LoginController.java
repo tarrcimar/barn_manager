@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 
 public class LoginController {
     private long userId;
-
+    private String username;
 
     @FXML
     private AnchorPane rootPane;
@@ -68,6 +68,7 @@ public class LoginController {
                 if(user.getUsername().equals(username) && user.getPassword().equals(password)){
                     System.out.println("Found user!");
                     userId = user.getId();
+                    username = user.getUsername();
                     found = true;
                 }
             }
@@ -85,6 +86,7 @@ public class LoginController {
             else{
                 System.out.println("In login: " + userId);
                 window.setUserId(userId);
+                window.setUserName(username);
                 fadeController.fadeOut("/example/view/mainWindow.fxml", rootPane);
             }
 
