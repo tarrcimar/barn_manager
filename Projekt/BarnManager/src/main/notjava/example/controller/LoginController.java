@@ -1,7 +1,10 @@
 package example.controller;
 
+import example.Database.BarnDAO;
+import example.Database.JpaBarnDAO;
 import example.Database.JpaUserDAO;
 import example.Database.UserDAO;
+import example.model.Barn;
 import example.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -54,6 +57,7 @@ public class LoginController {
 
         loginButton.setOnAction(actionEvent -> { // when login button is clicked, get the values from the textboxes
             UserDAO uDaO = new JpaUserDAO();
+            BarnDAO bDao = new JpaBarnDAO();
             String username = userName.getText().trim();
             String password = userPassword.getText().trim();
 
@@ -66,6 +70,13 @@ public class LoginController {
                     userId = user.getId();
                     found = true;
                 }
+            }
+
+            //példa az istállók lekérésére
+
+            List<Barn> barns = bDao.getBarns();
+            for(Barn b : barns){
+                System.out.println(b.getName());
             }
 
 
