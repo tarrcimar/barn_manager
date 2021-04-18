@@ -6,6 +6,8 @@ import example.Database.JpaDAO;
 import example.model.Animal;
 import example.model.Barn;
 import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.List;
@@ -22,6 +24,16 @@ public class MainWindowController {
         this.userId = userId;
     }
 
+    public static String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @FXML
     private ResourceBundle resources;
 
@@ -29,7 +41,18 @@ public class MainWindowController {
     private URL location;
 
     @FXML
+    private AnchorPane rootPane;
+
+    @FXML
+    private Label usernameLabel;
+
+    @FXML
+    private Hyperlink logOutLink;
+
+    @FXML
     void initialize() throws InterruptedException {
+        logOutLink.setOnAction(actionEvent -> changeToLogin());
+        usernameLabel.setText(getUsername());
 
         /* példák a lekérdezésekre
 
@@ -46,5 +69,10 @@ public class MainWindowController {
             System.out.println(a.getType() + " " + a.getId());
         }
          */
+    }
+    //change the screen back to the login screen
+    private void changeToLogin(){
+        FadeController fadeController = new FadeController();
+        fadeController.fadeOut("/example/view/login.fxml", rootPane);
     }
 }

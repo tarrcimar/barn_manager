@@ -85,6 +85,7 @@ public class LoginController {
             else{
                 System.out.println("In login: " + userId);
                 window.setUserId(userId);
+                window.setUsername(username);
                 fadeController.fadeOut("/example/view/mainWindow.fxml", rootPane);
             }
 
