@@ -9,10 +9,7 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import example.model.Animal;
-import example.model.Barn;
-import example.model.GenderType;
-import example.model.User;
+import example.model.*;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -88,6 +85,20 @@ public class Main extends Application {
         second.setAnimals(animalSet2);
 
         pista.setBarns(barnSet);
+
+        Forage buza = new Forage();
+        buza.setName(ForageType.HAY);
+        buza.setAmount((long)10);
+        buza.setUnit(MeasurementUnit.TON);
+        Forage kukac = new Forage();
+        kukac.setName(ForageType.WORM);
+        kukac.setAmount((long)22);
+        kukac.setUnit(MeasurementUnit.BOX);
+        Set<Forage> takarmanyok = new HashSet<>();
+        takarmanyok.add(buza);
+        takarmanyok.add(kukac);
+
+        pista.setForages(takarmanyok);
 
         entityManager.getTransaction().begin();
         entityManager.persist(pista);
