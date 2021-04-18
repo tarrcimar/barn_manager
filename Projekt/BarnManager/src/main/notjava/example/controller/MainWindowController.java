@@ -32,12 +32,12 @@ public class MainWindowController {
     void initialize() throws InterruptedException {
 
         /* Példák a lekérdezésekre
-        DAO minden = new JpaDAO();
-        System.out.println("In mainwindow: " + userId);
-        Barn b = minden.getBarnByUserId(userId);
+        DAO all = new JpaDAO();
+        System.out.println("In main window: " + userId);
+        Barn b = all.getBarnByUserId(userId);
         System.out.println(b.getName());
 
-        List<Animal> animalList = minden.getAnimalsByBarnId(1);
+        List<Animal> animalList = all.getAnimalsByBarnId(1);
         System.out.println(animalList.size());
         for (Animal a: animalList) {
             System.out.println(a.getType() + " " + a.getId());
