@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 
-
 <AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.controller.MainWindowController">
    <children>
       <AnchorPane prefHeight="61.0" prefWidth="708.0" style="-fx-background-color: #00897b;">

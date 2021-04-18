@@ -53,6 +53,7 @@ public class MainWindowController {
     void initialize() throws InterruptedException {
         logOutLink.setOnAction(actionEvent -> changeToLogin());
         usernameLabel.setText(getUsername());
+
         /* példák a lekérdezésekre
 
         DAO all = new JpaDAO();

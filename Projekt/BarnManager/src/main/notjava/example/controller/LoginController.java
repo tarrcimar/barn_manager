@@ -20,7 +20,6 @@ import java.util.ResourceBundle;
 
 public class LoginController {
     private long userId;
-    private String username;
 
 
     @FXML
@@ -69,7 +68,6 @@ public class LoginController {
                 if(user.getUsername().equals(username) && user.getPassword().equals(password)){
                     System.out.println("Found user!");
                     userId = user.getId();
-                    username = user.getUsername();
                     found = true;
                 }
             }
