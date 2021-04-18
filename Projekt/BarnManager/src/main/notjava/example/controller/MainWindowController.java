@@ -35,8 +35,10 @@ public class MainWindowController {
 
         DAO all = new JpaDAO();
         System.out.println("In main window: " + userId);
-        Barn b = all.getBarnByUserId(userId);
-        System.out.println(b.getName());
+        List<Barn> barnList = all.getBarnsByUserId(userId);
+        foreach (Barn b : barnList){
+            System.out.println(b.getName());
+        }
 
         List<Animal> animalList = all.getAnimalsByBarnId(1);
         System.out.println(animalList.size());
