@@ -31,7 +31,8 @@ public class MainWindowController {
     @FXML
     void initialize() throws InterruptedException {
 
-        /* Példák a lekérdezésekre
+        /* példák a lekérdezésekre
+
         DAO all = new JpaDAO();
         System.out.println("In main window: " + userId);
         Barn b = all.getBarnByUserId(userId);
