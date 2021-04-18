@@ -3,9 +3,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.controller.MainWindowController">
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.controller.MainWindowController">
    <children>
       <AnchorPane prefHeight="61.0" prefWidth="708.0" style="-fx-background-color: #00897b;">
          <children>
@@ -16,5 +18,8 @@
             </ImageView>
          </children>
       </AnchorPane>
+      <Hyperlink fx:id="logOutLink" layoutX="14.0" layoutY="363.0" text="Log out" />
+      <Label layoutX="14.0" layoutY="67.0" text="Logged in as:" />
+      <Label fx:id="usernameLabel" layoutX="93.0" layoutY="67.0" style="-fx-font-weight: BOLD;" text="blank" />
    </children>
 </AnchorPane>
