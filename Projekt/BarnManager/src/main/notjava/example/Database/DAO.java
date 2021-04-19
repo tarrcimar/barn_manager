@@ -11,17 +11,17 @@ public interface DAO extends AutoCloseable{
     void deleteAnimal(Animal a);
     void updateAnimal(Animal a);
     List<Animal> getAnimals();
+    List<Animal> getAnimalsByBarnId(long barnId);
 
     void saveBarn(Barn b);
     void deleteBarn(Barn b);
     void updateBarn(Barn b);
     List<Barn> getBarns();
-    Barn getBarnByUserId(long userId);
+    List<Barn> getBarnsByUserId(long userId);
 
     void saveUser(User u);
     void deleteUser(User u);
     void updateUser(User u);
     List<User> getUsers();
-    List<Animal> getAnimalsByBarnId(long barnId);
 
 }

@@ -61,4 +61,17 @@ public class User {
     public void setBarns(Set<Barn> barns) {
         this.barns = barns;
     }
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "owner")
+    private Set<Forage> forages;
+
+
+    public Set<Forage> getForages() {
+        return forages;
+    }
+
+    public void setForages(Set<Forage> forages) {
+        this.forages = forages;
+    }
 }

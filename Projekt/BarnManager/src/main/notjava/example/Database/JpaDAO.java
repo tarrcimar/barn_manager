@@ -43,6 +43,19 @@ public class JpaDAO implements DAO{
     }
 
     @Override
+    public List<Animal> getAnimalsByBarnId(long barnId) {
+        List<Animal> all = new ArrayList<>();
+        List<Animal> animals = getAnimals();
+        for (Animal animal : animals) {
+            if(animal.getBarn().getId() == barnId){
+                all.add(animal);
+            }
+        }
+
+        return all;
+    }
+
+    @Override
     public void saveBarn(Barn b) {
         entityManager.getTransaction().begin();
         entityManager.persist(b);
@@ -69,15 +82,16 @@ public class JpaDAO implements DAO{
     }
 
     @Override
-    public Barn getBarnByUserId(long userId) {
+    public List<Barn> getBarnsByUserId(long userId) {
+        List<Barn> basedOnUserId = new ArrayList<>();
         List<Barn> barns = getBarns();
         for(Barn barn : barns){
             if(barn.getUser().getId() == userId){
-                return barn;
+                basedOnUserId.add(barn);
             }
         }
 
-        return null;
+        return basedOnUserId;
     }
 
     @Override
@@ -104,19 +118,6 @@ public class JpaDAO implements DAO{
         TypedQuery<User> query = entityManager.createQuery("SELECT u FROM User u", User.class);
         List<User> users = query.getResultList();
         return users;
-    }
-
-    @Override
-    public List<Animal> getAnimalsByBarnId(long barnId) {
-        List<Animal> all = new ArrayList<>();
-        List<Animal> animals = getAnimals();
-        for (Animal animal : animals) {
-            if(animal.getBarn().getId() == barnId){
-                all.add(animal);
-            }
-        }
-
-        return all;
     }
 
     @Override
