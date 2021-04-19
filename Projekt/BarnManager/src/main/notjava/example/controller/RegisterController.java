@@ -27,6 +27,7 @@ public class RegisterController{
     public static final String USERNAME_PATTERN = //start with an alphanumeric character, followed by ._- or a-zA-Z0-9, at least
                                                  //at least 3, but maximum 18 characters long, close with alphanumeric
             "^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$";
+        //Valami
     public static final Pattern usernamePattern = Pattern.compile(USERNAME_PATTERN);
 
     public static final String PASSWORD_PATTERN = //minimum 8 characters in length, has to contain at last one digit, one upper, one lowercase
