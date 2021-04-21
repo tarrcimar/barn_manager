@@ -50,9 +50,15 @@ public class MainWindowController {
     private Hyperlink logOutLink;
 
     @FXML
+    private Button insightsButton;
+
+    @FXML
     void initialize() throws InterruptedException {
         logOutLink.setOnAction(actionEvent -> changeToLogin());
         usernameLabel.setText(getUsername());
+
+        //ugrás a chartra
+        insightsButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/chart.fxml", rootPane));
 
         /* példák a lekérdezésekre
 
