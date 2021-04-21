@@ -60,26 +60,26 @@ public class Main extends Application {
         barnSet.add(first);
         barnSet.add(second);
 
-        Animal elephant = new Animal();
-        elephant.setType("Elefánt");
-        elephant.setGender(GenderType.FEMALE);
-        Animal giraffe = new Animal();
-        giraffe.setType("Zsiráf");
-        giraffe.setAddedOn(now);
-        giraffe.setGender(GenderType.MALE);
+        Animal horse = new Animal();
+        horse.setType("Horse");
+        horse.setGender(GenderType.FEMALE);
+        Animal cow = new Animal();
+        cow.setType("Cow");
+        cow.setAddedOn(now);
+        cow.setGender(GenderType.MALE);
         Set<Animal> animalSet = new HashSet<>();
-        animalSet.add(elephant);
-        animalSet.add(giraffe);
+        animalSet.add(horse);
+        animalSet.add(cow);
 
-        Animal dog = new Animal();
-        dog.setType("Kutya");
-        dog.setGender(GenderType.FEMALE);
-        Animal cat = new Animal();
-        cat.setType("Macska");
-        cat.setGender(GenderType.MALE);
+        Animal pig = new Animal();
+        pig.setType("Pig");
+        pig.setGender(GenderType.FEMALE);
+        Animal goat = new Animal();
+        goat.setType("Goat");
+        goat.setGender(GenderType.MALE);
         Set<Animal> animalSet2 = new HashSet<>();
-        animalSet2.add(dog);
-        animalSet2.add(cat);
+        animalSet2.add(pig);
+        animalSet2.add(goat);
 
         first.setAnimals(animalSet);
         second.setAnimals(animalSet2);
