@@ -53,12 +53,23 @@ public class MainWindowController {
     private Button insightsButton;
 
     @FXML
+    private Button forageButton;
+
+    @FXML
     void initialize() throws InterruptedException {
+        ForageWindowController fw = new ForageWindowController();
+        fw.setUserId(userId);
+        fw.setUsername(username);
+
         logOutLink.setOnAction(actionEvent -> changeToLogin());
         usernameLabel.setText(getUsername());
 
         //ugrás a chartra
         insightsButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/chart.fxml", rootPane));
+
+        //ugrás takarmányablakra
+        forageButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/forageWindow.fxml", rootPane));
+
 
         /* példák a lekérdezésekre
 
