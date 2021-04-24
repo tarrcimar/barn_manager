@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXListView?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -22,10 +22,10 @@
       <Hyperlink fx:id="backToMain" layoutX="13.0" layoutY="363.0" text="Back to main menu" />
       <Label layoutX="14.0" layoutY="67.0" text="Logged in as:" />
       <Label fx:id="usernameLabel" layoutX="93.0" layoutY="67.0" style="-fx-font-weight: BOLD;" text="blank" />
-      <ListView fx:id="forageListView" layoutX="13.0" layoutY="89.0" prefHeight="266.0" prefWidth="673.0" style="-fx-background-color: f5f3b0;">
+      <JFXListView fx:id="forageListView" layoutX="14.0" layoutY="90.0" prefHeight="272.0" prefWidth="680.0" style="-fx-background-color: f5f3b0;">
          <effect>
             <DropShadow />
          </effect>
-      </ListView>
+      </JFXListView>
    </children>
 </AnchorPane>

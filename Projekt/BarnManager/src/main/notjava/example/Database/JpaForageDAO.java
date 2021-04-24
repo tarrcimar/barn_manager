@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import java.util.ArrayList;
 import java.util.List;
 
 public class JpaForageDAO implements ForageDAO{
@@ -37,6 +38,17 @@ public class JpaForageDAO implements ForageDAO{
         TypedQuery<Forage> query = entityManager.createQuery("SELECT f FROM Forage f", Forage.class);
         List<Forage> forages = query.getResultList();
         return forages;
+    }
+
+    public List<Forage> getForagesByUserId(long userId) {
+        List<Forage> all = new ArrayList<>();
+        List<Forage> forages = getForage();
+        for (Forage forage : forages) {
+            if(forage.getOwner_id().getId() == userId){
+                all.add(forage);
+            }
+        }
+        return all;
     }
 
     @Override
