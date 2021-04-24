@@ -1,7 +1,9 @@
 package example.controller;
 
 import com.jfoenix.controls.JFXListCell;
+import example.Database.JpaForageDAO;
 import example.model.Forage;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -71,6 +73,12 @@ public class ForageCellController extends JFXListCell<Forage> {
             foodNameLabel.setText(myForage.getName().toString());
             quantityLabel.setText(myForage.getAmount().toString());
             unitLabel.setText(myForage.getUnit().toString());
+
+            deleteButton.setOnMouseClicked(event -> {
+                getListView().getItems().remove(getItem());
+                JpaForageDAO all = new JpaForageDAO();
+                all.deleteForageByIds(myForage.getOwner_id().getId(),myForage.getId());
+            });
 
             setText(null);
             setGraphic(rootAnchorPane);

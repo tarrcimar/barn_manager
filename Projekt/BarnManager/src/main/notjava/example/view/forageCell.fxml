@@ -9,12 +9,12 @@
 
 <AnchorPane fx:id="rootAnchorPane" prefHeight="100.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="foodNameLabel" layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="187.0" text="Kajatípus">
+      <Label fx:id="foodNameLabel" layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="187.0" text="Foodtype">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="quantityLabel" layoutX="14.0" layoutY="50.0" text="Mennyiség">
+      <Label fx:id="quantityLabel" layoutX="14.0" layoutY="50.0" text="Amount">
          <font>
             <Font size="20.0" />
          </font>
@@ -24,7 +24,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TextArea fx:id="inputTextArea" layoutX="212.0" layoutY="41.0" prefHeight="11.0" prefWidth="147.0" promptText="Változtatni kívánt mennyiség" />
+      <TextArea fx:id="inputTextArea" layoutX="212.0" layoutY="41.0" prefHeight="11.0" prefWidth="147.0" promptText="Change amount" />
       <ImageView fx:id="addButton" fitHeight="58.0" fitWidth="76.0" layoutX="386.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/plusIcon.png" />
