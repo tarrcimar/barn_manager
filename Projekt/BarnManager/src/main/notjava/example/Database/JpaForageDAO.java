@@ -17,7 +17,7 @@ public class JpaForageDAO implements ForageDAO{
     @Override
     public void saveForage(Forage f) {
         entityManager.getTransaction().begin();
-        entityManager.persist(f);
+        entityManager.merge(f);
         entityManager.getTransaction().commit();
     }
 

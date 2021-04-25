@@ -52,15 +52,22 @@ public class ForageWindowController {
     private Label usernameLabel;
 
     @FXML
+    private Button addForageButton;
+
+    @FXML
     private JFXListView<Forage> forageListView;
 
     private ObservableList<Forage> forages;
 
     @FXML
     void initialize(){
+        AddForageWindowController afw = new AddForageWindowController();
+        afw.setUserId(userId);
+        afw.setUsername(username);
         forages = FXCollections.observableArrayList();
         usernameLabel.setText(getUsername());
         backToMain.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/mainWindow.fxml", rootPane));
+        addForageButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/addForageWindow.fxml", rootPane));
 
         JpaForageDAO all = new JpaForageDAO();
         forages = FXCollections.observableArrayList(all.getForagesByUserId(userId));
