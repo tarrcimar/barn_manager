@@ -67,9 +67,14 @@ public class Main extends Application {
         cow.setType("Cow");
         cow.setAddedOn(now);
         cow.setGender(GenderType.MALE);
+        Animal cow2 = new Animal();
+        cow2.setType("Cow");
+        cow2.setAddedOn(now);
+        cow2.setGender(GenderType.FEMALE);
         Set<Animal> animalSet = new HashSet<>();
         animalSet.add(horse);
         animalSet.add(cow);
+        animalSet.add(cow2);
 
         Animal pig = new Animal();
         pig.setType("Pig");
@@ -77,9 +82,13 @@ public class Main extends Application {
         Animal goat = new Animal();
         goat.setType("Goat");
         goat.setGender(GenderType.MALE);
+        Animal goat2 = new Animal();
+        goat2.setType("Goat");
+        goat2.setGender(GenderType.FEMALE);
         Set<Animal> animalSet2 = new HashSet<>();
         animalSet2.add(pig);
         animalSet2.add(goat);
+        animalSet2.add(goat2);
 
         first.setAnimals(animalSet);
         second.setAnimals(animalSet2);
