@@ -1,5 +1,8 @@
 package example.controller;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import example.Database.JpaUserDAO;
 import example.Database.UserDAO;
 import example.model.GenderType;
@@ -40,19 +43,19 @@ public class RegisterController{
     private AnchorPane rootPane;
 
     @FXML
-    private TextField registerUserName;
+    private JFXTextField registerUserName;
 
     @FXML
-    private PasswordField registerPassword;
+    private JFXPasswordField registerPassword;
 
     @FXML
-    private PasswordField registerPassword2;
+    private JFXPasswordField registerPassword2;
 
     @FXML
     private Hyperlink signInLink;
 
     @FXML
-    private Button registerRegisterButton;
+    private JFXButton registerRegisterButton;
 
     @FXML
     private Label passwordMatchLabel;

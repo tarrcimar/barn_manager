@@ -7,6 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.controller.MainWindowController">
    <children>
       <AnchorPane prefHeight="61.0" prefWidth="708.0" style="-fx-background-color: #00897b;">
@@ -21,7 +22,7 @@
       <Hyperlink fx:id="logOutLink" layoutX="14.0" layoutY="363.0" text="Log out" />
       <Label layoutX="14.0" layoutY="67.0" text="Logged in as:" />
       <Label fx:id="usernameLabel" layoutX="93.0" layoutY="67.0" style="-fx-font-weight: BOLD;" text="blank" />
-      <Button fx:id="insightsButton" layoutX="635.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-color: #4ebaaa;" text="Insights" />
-      <Button fx:id="forageButton" layoutX="567.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-color: #4ebaaa;" text="Forages" />
+      <JFXButton fx:id="insightsButton" layoutX="635.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-color: #4ebaaa;" text="Insights" />
+      <JFXButton fx:id="forageButton" layoutX="567.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-color: #4ebaaa;" text="Forages" />
    </children>
 </AnchorPane>
