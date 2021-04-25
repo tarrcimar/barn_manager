@@ -1,6 +1,7 @@
 package example.controller;
 
 
+import com.jfoenix.controls.JFXButton;
 import example.Database.DAO;
 import example.Database.JpaDAO;
 import example.model.Animal;
@@ -50,10 +51,10 @@ public class MainWindowController {
     private Hyperlink logOutLink;
 
     @FXML
-    private Button insightsButton;
+    private JFXButton insightsButton;
 
     @FXML
-    private Button forageButton;
+    private JFXButton forageButton;
 
     @FXML
     void initialize() throws InterruptedException {
