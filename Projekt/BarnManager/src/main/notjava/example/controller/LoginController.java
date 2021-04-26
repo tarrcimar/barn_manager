@@ -1,8 +1,5 @@
 package example.controller;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXPasswordField;
-import com.jfoenix.controls.JFXTextField;
 import example.Database.BarnDAO;
 import example.Database.JpaBarnDAO;
 import example.Database.JpaUserDAO;
@@ -35,16 +32,16 @@ public class LoginController {
     private URL location;
 
     @FXML
-    private JFXPasswordField userPassword;
+    private PasswordField userPassword;
 
     @FXML
-    private JFXTextField userName;
+    private TextField userName;
 
     @FXML
-    private JFXButton loginButton;
+    private Button loginButton;
 
     @FXML
-    private JFXButton loginRegister;
+    private Button loginRegister;
 
     @FXML
     private Label feedbackLabel;

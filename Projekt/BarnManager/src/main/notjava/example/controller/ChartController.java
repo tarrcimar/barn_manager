@@ -1,7 +1,6 @@
 package example.controller;
 
 
-import com.jfoenix.controls.JFXButton;
 import example.Database.DAO;
 import example.Database.ForageDAO;
 import example.Database.JpaDAO;
@@ -45,7 +44,7 @@ public class ChartController {
     private Label goatCount;
 
     @FXML
-    private JFXButton backButton;
+    private Button backButton;
 
     @FXML
     private Label hayCount;

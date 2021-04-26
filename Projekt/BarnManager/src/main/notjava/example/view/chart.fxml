@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -62,7 +62,7 @@
                         <Pane layoutX="26.0" layoutY="147.0" prefHeight="7.0" prefWidth="106.0" style="-fx-background-color: #e59a20;" />
                         <Pane layoutX="27.0" layoutY="110.0" prefHeight="7.0" prefWidth="106.0" style="-fx-background-color: #e7693b;" />
                         <Pane layoutX="26.0" layoutY="189.0" prefHeight="7.0" prefWidth="106.0" style="-fx-background-color: #4ea44e;" />
-                        <JFXButton fx:id="backButton" layoutX="30.0" layoutY="317.0" style="-fx-background-color: #4ebaaa;" text="Back" />
+                        <Button fx:id="backButton" layoutX="29.0" layoutY="318.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: #4ebaaa;" text="Back" />
                      </children>
                   </AnchorPane>
             </content>
