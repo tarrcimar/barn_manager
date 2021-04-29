@@ -1,5 +1,8 @@
 package example.controller;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import example.Database.BarnDAO;
 import example.Database.JpaBarnDAO;
 import example.Database.JpaUserDAO;
@@ -26,25 +29,19 @@ public class LoginController {
     private AnchorPane rootPane;
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
-    private PasswordField userPassword;
-
-    @FXML
-    private TextField userName;
-
-    @FXML
-    private Button loginButton;
-
-    @FXML
-    private Button loginRegister;
-
-    @FXML
     private Label feedbackLabel;
+
+    @FXML
+    private JFXTextField userName;
+
+    @FXML
+    private JFXPasswordField userPassword;
+
+    @FXML
+    private JFXButton loginRegister;
+
+    @FXML
+    private JFXButton loginButton;
 
     JpaUserDAO userDAO = new JpaUserDAO();
 

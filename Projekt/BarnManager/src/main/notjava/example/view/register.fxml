@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,8 +12,6 @@
 
 <AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.controller.RegisterController">
    <children>
-      <TextField fx:id="registerUserName" layoutX="255.0" layoutY="159.0" maxHeight="25.0" prefHeight="25.0" prefWidth="190.0" promptText="Username" />
-      <Button fx:id="registerRegisterButton" layoutX="310.0" layoutY="311.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="81.0" style="-fx-background-color: #4ebaaa;" text="Create" />
       <Label layoutX="255.0" layoutY="89.0" prefHeight="31.0" prefWidth="203.0" text="Create Your Account">
          <font>
             <Font size="21.0" />
@@ -34,7 +32,9 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <PasswordField fx:id="registerPassword" layoutX="254.0" layoutY="208.0" prefHeight="25.0" prefWidth="190.0" promptText="Password" />
-      <PasswordField fx:id="registerPassword2" layoutX="254.0" layoutY="257.0" prefHeight="25.0" prefWidth="190.0" promptText="Repeat Password" />
+      <JFXTextField fx:id="registerUserName" layoutX="257.0" layoutY="146.0" prefHeight="25.0" prefWidth="190.0" />
+      <JFXPasswordField fx:id="registerPassword" layoutX="257.0" layoutY="205.0" prefHeight="25.0" prefWidth="190.0" />
+      <JFXPasswordField fx:id="registerPassword2" layoutX="257.0" layoutY="261.0" prefHeight="25.0" prefWidth="190.0" />
+      <JFXButton fx:id="registerRegisterButton" layoutX="317.0" layoutY="311.0" prefHeight="31.0" prefWidth="64.0" style="-fx-background-color: #4ebaaa;" text="Register" />
    </children>
 </AnchorPane>

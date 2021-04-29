@@ -1,5 +1,6 @@
 package example.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListCell;
 import com.jfoenix.controls.JFXListView;
 import example.Database.DAO;
@@ -52,10 +53,10 @@ public class ForageWindowController {
     private Label usernameLabel;
 
     @FXML
-    private Button addForageButton;
+    private JFXListView<Forage> forageListView;
 
     @FXML
-    private JFXListView<Forage> forageListView;
+    private JFXButton addForageButton;
 
     private ObservableList<Forage> forages;
 
