@@ -1,6 +1,7 @@
 package example.controller;
 
 
+import com.jfoenix.controls.JFXButton;
 import example.Database.DAO;
 import example.Database.JpaDAO;
 import example.model.Animal;
@@ -40,20 +41,21 @@ public class MainWindowController {
     @FXML
     private URL location;
 
-    @FXML
-    private AnchorPane rootPane;
 
     @FXML
-    private Label usernameLabel;
+    private AnchorPane rootPane;
 
     @FXML
     private Hyperlink logOutLink;
 
     @FXML
-    private Button insightsButton;
+    private Label usernameLabel;
 
     @FXML
-    private Button forageButton;
+    private JFXButton forageButton;
+
+    @FXML
+    private JFXButton insightsButton;
 
     @FXML
     void initialize() throws InterruptedException {
