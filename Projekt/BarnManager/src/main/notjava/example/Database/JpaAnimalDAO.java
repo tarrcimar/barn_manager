@@ -2,11 +2,13 @@ package example.Database;
 
 import example.model.Animal;
 import example.model.Barn;
+import example.model.Forage;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import java.util.ArrayList;
 import java.util.List;
 
 public class JpaAnimalDAO implements AnimalDAO{
@@ -27,6 +29,11 @@ public class JpaAnimalDAO implements AnimalDAO{
         entityManager.remove(a);
         entityManager.getTransaction().commit();
     }
+    public Animal editAnimalById(long id){
+        Animal actual = new Animal();
+        actual = (Animal) entityManager.createQuery("SELECT a FROM Animal a WHERE id = "+id+"", Animal.class);
+        return actual;
+    }
 
     @Override
     public void updateAnimal(Animal a) {
@@ -38,6 +45,16 @@ public class JpaAnimalDAO implements AnimalDAO{
         TypedQuery<Animal> query = entityManager.createQuery("SELECT a FROM Animal a", Animal.class);
         List<Animal> animals = query.getResultList();
         return animals;
+    }
+    public List<Animal> getAnimalsByBarnId(long barnId) {
+        List<Animal> all = new ArrayList<>();
+        List<Animal> animals = getAnimals();
+        for (Animal animal : animals) {
+            if(animal.getBarn().getId() ==  barnId){
+                all.add(animal);
+            }
+        }
+        return all;
     }
 
     @Override

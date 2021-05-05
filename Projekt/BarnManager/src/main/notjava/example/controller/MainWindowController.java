@@ -1,6 +1,5 @@
 package example.controller;
 
-
 import com.jfoenix.controls.JFXButton;
 import example.Database.DAO;
 import example.Database.JpaDAO;
@@ -58,10 +57,17 @@ public class MainWindowController {
     private JFXButton insightsButton;
 
     @FXML
+    private JFXButton listaElem;
+
+    @FXML
     void initialize() throws InterruptedException {
         ForageWindowController fw = new ForageWindowController();
         fw.setUserId(userId);
         fw.setUsername(username);
+
+        ListController ls = new ListController();
+        ls.setUserId(userId);
+        ls.setUsername(username);
 
         logOutLink.setOnAction(actionEvent -> changeToLogin());
         usernameLabel.setText(getUsername());
@@ -72,6 +78,8 @@ public class MainWindowController {
         //ugrás takarmányablakra
         forageButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/forageWindow.fxml", rootPane));
 
+        //ugrás a listára
+        listaElem.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/list.fxml",rootPane));
 
         /* példák a lekérdezésekre
 
