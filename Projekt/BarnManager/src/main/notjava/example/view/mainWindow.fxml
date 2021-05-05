@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.controller.MainWindowController">
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.controller.MainWindowController">
    <children>
       <AnchorPane prefHeight="61.0" prefWidth="708.0" style="-fx-background-color: #00897b;">
          <children>
@@ -23,5 +23,6 @@
       <Label fx:id="usernameLabel" layoutX="93.0" layoutY="67.0" style="-fx-font-weight: BOLD;" text="blank" />
       <JFXButton fx:id="forageButton" layoutX="546.0" layoutY="84.0" style="-fx-background-color: #4ebaaa;" text="Forages" />
       <JFXButton fx:id="insightsButton" layoutX="633.0" layoutY="84.0" style="-fx-background-color: #4ebaaa;" text="Insights" />
+      <JFXButton fx:id="listaElem" layoutX="642.0" layoutY="145.0" style="-fx-background-color: #4ebaaa;" text="Lista" />
    </children>
 </AnchorPane>
