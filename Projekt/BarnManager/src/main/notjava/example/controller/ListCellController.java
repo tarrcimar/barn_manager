@@ -9,9 +9,7 @@ import javafx.fxml.FXML;
 import example.model.GenderType;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.control.Alert;
 import example.Database.JpaAnimalDAO;
 import javafx.scene.layout.AnchorPane;
 
@@ -53,32 +51,19 @@ public class ListCellController extends JFXListCell<Animal> {
     private FXMLLoader fxmlLoader;
 
     private void editButtonClicked(Animal myAnimal){
-        String animalname = namefield.getText();
-        String gender = genderfield.getText();
-        String type = typefield.getText();
         int activity = Integer.parseInt(activityfield.getText());
         String comment = commentField.getText();
-
-        GenderType gendertype = GenderType.FEMALE;
-        if (gender == "MALE")
-        {
-            gendertype = GenderType.MALE;
-        }
-        else if(gender == "FEMALE")
-        {
-          gendertype = GenderType.FEMALE;
-        }
-        myAnimal.setGender(gendertype);
-
-        myAnimal.setType(type);
         myAnimal.setActivity(activity);
         myAnimal.setComment(comment);
         JpaAnimalDAO janos = new JpaAnimalDAO();
         janos.updateAnimal(myAnimal);
+        //getListView().getItems().remove(getItem());
+        //getListView().getItems().add(myAnimal);
     }
     private void removeButtonClicked(Animal myAnimal){
         JpaAnimalDAO jozsef = new JpaAnimalDAO();
-        jozsef.deleteAnimal(myAnimal);
+        jozsef.deleteAnimalByIds(myAnimal.getBarn().getId(), myAnimal.getId());
+        getListView().getItems().remove(getItem());
     }
 
     @FXML
@@ -89,6 +74,7 @@ public class ListCellController extends JFXListCell<Animal> {
     @Override
     protected void updateItem(Animal myAnimal, boolean empty) {
         super.updateItem(myAnimal, empty);
+
 
         if(empty || myAnimal == null){
             setText(null);
@@ -106,6 +92,23 @@ public class ListCellController extends JFXListCell<Animal> {
                 }
             }
 
+            namefield.setEditable(false);
+            namefield.setText(myAnimal.getId().toString());
+            genderfield.setEditable(false);
+            genderfield.setText(myAnimal.getGender().toString());
+            typefield.setEditable(false);
+            typefield.setText(myAnimal.getType());
+            datefield.setEditable(false);
+            if (myAnimal.getAddedOn() != null)
+            {
+                datefield.setText(myAnimal.getAddedOn().toString());
+            }
+            if (myAnimal.getActivity() != null) {
+                activityfield.setText(myAnimal.getActivity().toString());
+            }
+            if (myAnimal.getComment() != null) {
+                commentField.setText(myAnimal.getComment());
+            }
             //gomb interakciók
             removeFromList.setOnMouseClicked(event -> removeButtonClicked(myAnimal));
             fixListUnit.setOnMouseClicked(event -> editButtonClicked(myAnimal));

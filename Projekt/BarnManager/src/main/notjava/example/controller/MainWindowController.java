@@ -1,16 +1,11 @@
 package example.controller;
 
 import com.jfoenix.controls.JFXButton;
-import example.Database.DAO;
-import example.Database.JpaDAO;
-import example.model.Animal;
-import example.model.Barn;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class MainWindowController {
@@ -67,7 +62,6 @@ public class MainWindowController {
 
         ListController ls = new ListController();
         ls.setUserId(userId);
-        ls.setUsername(username);
 
         logOutLink.setOnAction(actionEvent -> changeToLogin());
         usernameLabel.setText(getUsername());
@@ -79,7 +73,7 @@ public class MainWindowController {
         forageButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/forageWindow.fxml", rootPane));
 
         //ugrás a listára
-        listaElem.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/list.fxml",rootPane));
+        listaElem.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/animalList.fxml",rootPane));
 
         /* példák a lekérdezésekre
 
