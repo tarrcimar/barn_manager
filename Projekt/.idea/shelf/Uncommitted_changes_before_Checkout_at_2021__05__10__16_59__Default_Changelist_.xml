@@ -1,0 +1,9 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_2021__05__10__16_59_[Default_Changelist]" date="1620662403711" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021__05__10__16_59_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 2021. 05. 10. 16:59 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="BarnManager/target/classes/example/controller/LoginController.class" />
+    <option name="AFTER_PATH" value="BarnManager/target/classes/example/controller/LoginController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021__05__10__16_59_[Default_Changelist]/LoginController.class" />
+  </binary>
+</changelist>

@@ -1,0 +1,68 @@
+Index: BarnManager/src/main/notjava/example/controller/LoginController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package example.controller;\r\n\r\nimport example.Database.JpaUserDAO;\r\nimport example.Database.UserDAO;\r\nimport example.model.User;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.control.PasswordField;\r\nimport javafx.scene.control.TextField;\r\nimport javafx.scene.layout.AnchorPane;\r\n\r\nimport java.net.URL;\r\nimport java.util.List;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class LoginController {\r\n    private long userId;\r\n\r\n\r\n    @FXML\r\n    private AnchorPane rootPane;\r\n\r\n    @FXML\r\n    private ResourceBundle resources;\r\n\r\n    @FXML\r\n    private URL location;\r\n\r\n    @FXML\r\n    private PasswordField userPassword;\r\n\r\n    @FXML\r\n    private TextField userName;\r\n\r\n    @FXML\r\n    private Button loginButton;\r\n\r\n    @FXML\r\n    private Button loginRegister;\r\n\r\n    @FXML\r\n    private Label feedbackLabel;\r\n\r\n    JpaUserDAO userDAO = new JpaUserDAO();\r\n\r\n    @FXML\r\n    void initialize() {\r\n        FXMLLoader loader = new FXMLLoader();\r\n        MainWindowController window = new MainWindowController();\r\n\r\n        FadeController fadeController = new FadeController();\r\n\r\n        loginButton.setOnAction(actionEvent -> { // when login button is clicked, get the values from the textboxes\r\n            UserDAO uDaO = new JpaUserDAO();\r\n            String username = userName.getText().trim();\r\n            String password = userPassword.getText().trim();\r\n\r\n            boolean found = false;\r\n\r\n            List<User> users = uDaO.getUsers(); //if the username and password matches an existing user, switch to main window\r\n            for (User user : users){\r\n                if(user.getUsername().equals(username) && user.getPassword().equals(password)){\r\n                    System.out.println(\"Found user!\");\r\n                    userId = user.getId();\r\n                    found = true;\r\n                }\r\n            }\r\n\r\n\r\n\r\n            if(!found) feedbackLabel.setVisible(true); //if user does not exist, provide an error message\r\n            else{\r\n                System.out.println(\"In login: \" + userId);\r\n                window.setUserId(userId);\r\n                fadeController.fadeOut(\"/example/view/mainWindow.fxml\", rootPane);\r\n            }\r\n\r\n        });\r\n\r\n        loginRegister.setOnAction(actionEvent -> { //when register button is clicked, change window to register.fxml\r\n            fadeController.fadeOut(\"/example/view/register.fxml\", rootPane);\r\n        });\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/BarnManager/src/main/notjava/example/controller/LoginController.java b/BarnManager/src/main/notjava/example/controller/LoginController.java
+--- a/BarnManager/src/main/notjava/example/controller/LoginController.java	(revision 343538742bdeca87ff2a49bccc60398e385a2da8)
++++ b/BarnManager/src/main/notjava/example/controller/LoginController.java	(date 1620661689212)
+@@ -74,7 +74,7 @@
+             else{
+                 System.out.println("In login: " + userId);
+                 window.setUserId(userId);
+-                fadeController.fadeOut("/example/view/mainWindow.fxml", rootPane);
++                fadeController.fadeOut("/example/view/barnWindow.fxml", rootPane);
+             }
+ 
+         });
+Index: BarnManager/JavaFX11.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule=\"true\" type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"FacetManager\">\r\n    <facet type=\"jpa\" name=\"JPA\">\r\n      <configuration>\r\n        <setting name=\"validation-enabled\" value=\"true\" />\r\n        <datasource-mapping>\r\n          <factory-entry name=\"br.com.fredericci.pu\" />\r\n        </datasource-mapping>\r\n        <naming-strategy-map />\r\n        <deploymentDescriptor name=\"persistence.xml\" url=\"file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml\" />\r\n      </configuration>\r\n    </facet>\r\n  </component>\r\n  <component name=\"NewModuleRootManager\" LANGUAGE_LEVEL=\"JDK_11\">\r\n    <output url=\"file://$MODULE_DIR$/target/classes\" />\r\n    <output-test url=\"file://$MODULE_DIR$/target/test-classes\" />\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/main/resources\" type=\"java-resource\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/main/notjava\" isTestSource=\"false\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/test/java\" isTestSource=\"true\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/test\" isTestSource=\"true\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/target\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.hibernate:hibernate-entitymanager:5.4.4.Final\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.jboss.logging:jboss-logging:3.3.2.Final\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.hibernate:hibernate-core:5.4.4.Final\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.javassist:javassist:3.24.0-GA\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: antlr:antlr:2.7.7\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.jboss:jandex:2.0.5.Final\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.fasterxml:classmate:1.3.4\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: javax.activation:javax.activation-api:1.2.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: javax.xml.bind:jaxb-api:2.3.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.glassfish.jaxb:jaxb-runtime:2.3.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.glassfish.jaxb:txw2:2.3.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.sun.istack:istack-commons-runtime:3.0.7\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.jvnet.staxex:stax-ex:1.8\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.15\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.dom4j:dom4j:2.1.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.hibernate.common:hibernate-commons-annotations:5.1.0.Final\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: javax.persistence:javax.persistence-api:2.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: net.bytebuddy:byte-buddy:1.9.11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.1.1.Final\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.h2database:h2:1.4.199\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-controls:11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-controls:win:11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-graphics:11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-graphics:win:11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-base:11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-base:win:11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-fxml:11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-fxml:win:11\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.junit.jupiter:junit-jupiter:5.4.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.junit.jupiter:junit-jupiter-api:5.4.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.apiguardian:apiguardian-api:1.0.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.opentest4j:opentest4j:1.1.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.junit.platform:junit-platform-commons:1.4.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.junit.jupiter:junit-jupiter-params:5.4.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.junit.jupiter:junit-jupiter-engine:5.4.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.junit.platform:junit-platform-engine:1.4.2\" level=\"project\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/BarnManager/JavaFX11.iml b/BarnManager/JavaFX11.iml
+--- a/BarnManager/JavaFX11.iml	(revision 343538742bdeca87ff2a49bccc60398e385a2da8)
++++ b/BarnManager/JavaFX11.iml	(date 1620660894415)
+@@ -19,7 +19,6 @@
+       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+       <sourceFolder url="file://$MODULE_DIR$/src/main/notjava" isTestSource="false" />
+       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+-      <sourceFolder url="file://$MODULE_DIR$/src/test" isTestSource="true" />
+       <excludeFolder url="file://$MODULE_DIR$/target" />
+     </content>
+     <orderEntry type="inheritedJdk" />
+Index: .idea/jarRepositories.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/jarRepositories.xml b/.idea/jarRepositories.xml
+new file mode 100644
+--- /dev/null	(date 1620660894450)
++++ b/.idea/jarRepositories.xml	(date 1620660894450)
+@@ -0,0 +1,20 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RemoteRepositoriesConfiguration">
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Central Repository" />
++      <option name="url" value="https://repo.maven.apache.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Maven Central repository" />
++      <option name="url" value="https://repo1.maven.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="jboss.community" />
++      <option name="name" value="JBoss Community repository" />
++      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
++    </remote-repository>
++  </component>
++</project>
+\ No newline at end of file

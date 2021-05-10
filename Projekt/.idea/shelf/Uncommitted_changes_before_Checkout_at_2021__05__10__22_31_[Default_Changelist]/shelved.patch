@@ -1,0 +1,219 @@
+Index: BarnManager/src/main/notjava/example/controller/LoginController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package example.controller;\r\n\r\nimport com.jfoenix.controls.JFXButton;\r\nimport com.jfoenix.controls.JFXPasswordField;\r\nimport com.jfoenix.controls.JFXTextField;\r\nimport example.Database.BarnDAO;\r\nimport example.Database.JpaBarnDAO;\r\nimport example.Database.JpaUserDAO;\r\nimport example.Database.UserDAO;\r\nimport example.model.Barn;\r\nimport example.model.User;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.control.PasswordField;\r\nimport javafx.scene.control.TextField;\r\nimport javafx.scene.layout.AnchorPane;\r\n\r\nimport java.net.URL;\r\nimport java.util.List;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class LoginController {\r\n    private long userId;\r\n\r\n\r\n    @FXML\r\n    private AnchorPane rootPane;\r\n\r\n    @FXML\r\n    private Label feedbackLabel;\r\n\r\n    @FXML\r\n    private JFXTextField userName;\r\n\r\n    @FXML\r\n    private JFXPasswordField userPassword;\r\n\r\n    @FXML\r\n    private JFXButton loginRegister;\r\n\r\n    @FXML\r\n    private JFXButton loginButton;\r\n\r\n    JpaUserDAO userDAO = new JpaUserDAO();\r\n\r\n    @FXML\r\n    void initialize() {\r\n        FXMLLoader loader = new FXMLLoader();\r\n        MainWindowController window = new MainWindowController();\r\n\r\n        FadeController fadeController = new FadeController();\r\n\r\n        loginButton.setOnAction(actionEvent -> { // when login button is clicked, get the values from the textboxes\r\n            UserDAO uDaO = new JpaUserDAO();\r\n            BarnDAO bDao = new JpaBarnDAO();\r\n            String username = userName.getText().trim();\r\n            String password = userPassword.getText().trim();\r\n\r\n            boolean found = false;\r\n\r\n            List<User> users = uDaO.getUsers(); //if the username and password matches an existing user, switch to main window\r\n            for (User user : users){\r\n                if(user.getUsername().equals(username) && user.getPassword().equals(password)){\r\n                    System.out.println(\"Found user!\");\r\n                    userId = user.getId();\r\n                    found = true;\r\n                }\r\n            }\r\n\r\n            //példa az istállók lekérésére\r\n\r\n            List<Barn> barns = bDao.getBarns();\r\n            for(Barn b : barns){\r\n                System.out.println(b.getName());\r\n            }\r\n\r\n\r\n\r\n            if(!found) feedbackLabel.setVisible(true); //if user does not exist, provide an error message\r\n            else{\r\n                System.out.println(\"In login: \" + userId);\r\n                window.setUserId(userId);\r\n                window.setUsername(username);\r\n                fadeController.fadeOut(\"/example/view/mainWindow.fxml\", rootPane);\r\n            }\r\n\r\n        });\r\n\r\n        loginRegister.setOnAction(actionEvent -> { //when register button is clicked, change window to register.fxml\r\n            fadeController.fadeOut(\"/example/view/register.fxml\", rootPane);\r\n        });\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/BarnManager/src/main/notjava/example/controller/LoginController.java b/BarnManager/src/main/notjava/example/controller/LoginController.java
+--- a/BarnManager/src/main/notjava/example/controller/LoginController.java	(revision cf80f84cbf8649d8e3a13beac13c288203ec206a)
++++ b/BarnManager/src/main/notjava/example/controller/LoginController.java	(date 1620682256713)
+@@ -49,6 +49,7 @@
+     void initialize() {
+         FXMLLoader loader = new FXMLLoader();
+         MainWindowController window = new MainWindowController();
++        BarnWindowController bwindow = new BarnWindowController();
+ 
+         FadeController fadeController = new FadeController();
+ 
+@@ -82,8 +83,10 @@
+             else{
+                 System.out.println("In login: " + userId);
+                 window.setUserId(userId);
++                bwindow.setUserId(userId);
+                 window.setUsername(username);
+-                fadeController.fadeOut("/example/view/mainWindow.fxml", rootPane);
++                bwindow.setUsername(username);
++                fadeController.fadeOut("/example/view/barnWindow.fxml", rootPane);
+             }
+ 
+         });
+Index: BarnManager/src/main/notjava/example/controller/MainWindowController.java
+===================================================================
+diff --git a/BarnManager/src/main/notjava/example/controller/MainWindowController.java b/BarnManager/src/main/notjava/example/controller/MainWindowController.java
+deleted file mode 100644
+--- a/BarnManager/src/main/notjava/example/controller/MainWindowController.java	(revision cf80f84cbf8649d8e3a13beac13c288203ec206a)
++++ /dev/null	(revision cf80f84cbf8649d8e3a13beac13c288203ec206a)
+@@ -1,105 +0,0 @@
+-package example.controller;
+-
+-import com.jfoenix.controls.JFXButton;
+-import example.Database.DAO;
+-import example.Database.JpaDAO;
+-import example.model.Animal;
+-import example.model.Barn;
+-import javafx.fxml.FXML;
+-import javafx.scene.control.*;
+-import javafx.scene.layout.AnchorPane;
+-
+-import java.net.URL;
+-import java.util.List;
+-import java.util.ResourceBundle;
+-
+-public class MainWindowController {
+-    public static long userId;
+-
+-    public long getUserId() {
+-        return userId;
+-    }
+-
+-    public void setUserId(long userId) {
+-        this.userId = userId;
+-    }
+-
+-    public static String username;
+-
+-    public String getUsername() {
+-        return username;
+-    }
+-
+-    public void setUsername(String username) {
+-        this.username = username;
+-    }
+-
+-    @FXML
+-    private ResourceBundle resources;
+-
+-    @FXML
+-    private URL location;
+-
+-
+-    @FXML
+-    private AnchorPane rootPane;
+-
+-    @FXML
+-    private Hyperlink logOutLink;
+-
+-    @FXML
+-    private Label usernameLabel;
+-
+-    @FXML
+-    private JFXButton forageButton;
+-
+-    @FXML
+-    private JFXButton insightsButton;
+-
+-    @FXML
+-    private JFXButton listaElem;
+-
+-    @FXML
+-    void initialize() throws InterruptedException {
+-        ForageWindowController fw = new ForageWindowController();
+-        fw.setUserId(userId);
+-        fw.setUsername(username);
+-
+-        ListController ls = new ListController();
+-        ls.setUserId(userId);
+-        ls.setUsername(username);
+-
+-        logOutLink.setOnAction(actionEvent -> changeToLogin());
+-        usernameLabel.setText(getUsername());
+-
+-        //ugrás a chartra
+-        insightsButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/chart.fxml", rootPane));
+-
+-        //ugrás takarmányablakra
+-        forageButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/forageWindow.fxml", rootPane));
+-
+-        //ugrás a listára
+-        listaElem.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/list.fxml",rootPane));
+-
+-        /* példák a lekérdezésekre
+-
+-        DAO all = new JpaDAO();
+-        System.out.println("In main window: " + userId);
+-        List<Barn> barnList = all.getBarnsByUserId(userId);
+-        foreach (Barn b : barnList){
+-            System.out.println(b.getName());
+-        }
+-
+-        List<Animal> animalList = all.getAnimalsByBarnId(1);
+-        System.out.println(animalList.size());
+-        for (Animal a: animalList) {
+-            System.out.println(a.getType() + " " + a.getId());
+-        }
+-         */
+-    }
+-    //change the screen back to the login screen
+-    private void changeToLogin(){
+-        FadeController fadeController = new FadeController();
+-        fadeController.fadeOut("/example/view/login.fxml", rootPane);
+-    }
+-}
+Index: BarnManager/src/main/notjava/example/view/mainWindow.fxml
+===================================================================
+diff --git a/BarnManager/src/main/notjava/example/view/mainWindow.fxml b/BarnManager/src/main/notjava/example/view/mainWindow.fxml
+deleted file mode 100644
+--- a/BarnManager/src/main/notjava/example/view/mainWindow.fxml	(revision cf80f84cbf8649d8e3a13beac13c288203ec206a)
++++ /dev/null	(revision cf80f84cbf8649d8e3a13beac13c288203ec206a)
+@@ -1,28 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import com.jfoenix.controls.JFXButton?>
+-<?import javafx.scene.control.Hyperlink?>
+-<?import javafx.scene.control.Label?>
+-<?import javafx.scene.image.Image?>
+-<?import javafx.scene.image.ImageView?>
+-<?import javafx.scene.layout.AnchorPane?>
+-
+-<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.controller.MainWindowController">
+-   <children>
+-      <AnchorPane prefHeight="61.0" prefWidth="708.0" style="-fx-background-color: #00897b;">
+-         <children>
+-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="3.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+-               <image>
+-                  <Image url="@../assets/logo.png" />
+-               </image>
+-            </ImageView>
+-         </children>
+-      </AnchorPane>
+-      <Hyperlink fx:id="logOutLink" layoutX="14.0" layoutY="363.0" text="Log out" />
+-      <Label layoutX="14.0" layoutY="67.0" text="Logged in as:" />
+-      <Label fx:id="usernameLabel" layoutX="93.0" layoutY="67.0" style="-fx-font-weight: BOLD;" text="blank" />
+-      <JFXButton fx:id="forageButton" layoutX="546.0" layoutY="84.0" style="-fx-background-color: #4ebaaa;" text="Forages" />
+-      <JFXButton fx:id="insightsButton" layoutX="633.0" layoutY="84.0" style="-fx-background-color: #4ebaaa;" text="Insights" />
+-      <JFXButton fx:id="listaElem" layoutX="642.0" layoutY="145.0" style="-fx-background-color: #4ebaaa;" text="Lista" />
+-   </children>
+-</AnchorPane>
+Index: BarnManager/src/main/notjava/example/controller/ChartController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package example.controller;\r\n\r\n\r\nimport com.jfoenix.controls.JFXButton;\r\nimport example.Database.DAO;\r\nimport example.Database.ForageDAO;\r\nimport example.Database.JpaDAO;\r\nimport example.Database.JpaForageDAO;\r\nimport example.model.Animal;\r\nimport example.model.Barn;\r\nimport example.model.Forage;\r\nimport example.model.MeasurementUnit;\r\nimport javafx.collections.FXCollections;\r\nimport javafx.collections.ObservableList;\r\nimport javafx.event.EventHandler;\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.chart.PieChart;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.input.MouseEvent;\r\nimport javafx.scene.layout.AnchorPane;\r\nimport javafx.scene.paint.Color;\r\n\r\nimport java.net.URL;\r\nimport java.util.*;\r\n\r\npublic class ChartController {\r\n\r\n    @FXML\r\n    private AnchorPane rootPane;\r\n\r\n    @FXML\r\n    private PieChart animalsChart;\r\n\r\n    @FXML\r\n    private Label horseCount;\r\n\r\n    @FXML\r\n    private Label cowCount;\r\n\r\n    @FXML\r\n    private Label pigCount;\r\n\r\n    @FXML\r\n    private Label goatCount;\r\n\r\n    @FXML\r\n    private JFXButton backButton;\r\n\r\n    @FXML\r\n    private Label hayCount;\r\n\r\n    @FXML\r\n    private Label wormCount;\r\n\r\n    @FXML\r\n    private Label meatCount;\r\n\r\n    @FXML\r\n    private Label rootCount;\r\n\r\n    @FXML\r\n    private Label fungusCount;\r\n\r\n    @FXML\r\n    private Label seedCount;\r\n\r\n    @FXML\r\n    private PieChart foragesChart;\r\n\r\n    @FXML\r\n    void initialize() {\r\n        DAO dao = new JpaDAO();\r\n        JpaForageDAO all = new JpaForageDAO();\r\n\r\n        // lekérjük a userhez tartozó istállókat\r\n        List<Barn> barnListByUserId = dao.getBarnsByUserId(MainWindowController.userId);\r\n        List<Forage> forageList = all.getForagesByUserId(MainWindowController.userId);\r\n        Map<String, Long> forageCount = new HashMap<>();\r\n\r\n        List<Animal> animalList;\r\n        Map<String, Integer> animalCount = new HashMap<>();\r\n\r\n        // egyes állatok számának lekérése\r\n        for(Barn barn: barnListByUserId) {\r\n            animalList = dao.getAnimalsByBarnId(barn.getId());\r\n            for (Animal animal : animalList) {\r\n                int count = animalCount.getOrDefault(animal.getType(), 0);\r\n                animalCount.put(animal.getType(), count + 1);\r\n            }\r\n            animalList.clear();\r\n        }\r\n\r\n        // labelek beállítása\r\n        horseCount.setText(String.valueOf(animalCount.getOrDefault(\"Horse\", 0)));\r\n        cowCount.setText(String.valueOf(animalCount.getOrDefault(\"Cow\", 0)));\r\n        pigCount.setText(String.valueOf(animalCount.getOrDefault(\"Pig\", 0)));\r\n        goatCount.setText(String.valueOf(animalCount.getOrDefault(\"Goat\", 0)));\r\n\r\n\r\n        // pie chart szeletek beállítása\r\n        ObservableList<PieChart.Data> pieChartDataAnimal = FXCollections.observableArrayList(\r\n                new PieChart.Data(\"Horse\", animalCount.getOrDefault(\"Horse\", 0)),\r\n                new PieChart.Data(\"Cow\", animalCount.getOrDefault(\"Cow\", 0)),\r\n                new PieChart.Data(\"Pig\", animalCount.getOrDefault(\"Pig\", 0)),\r\n                new PieChart.Data(\"Goat\", animalCount.getOrDefault(\"Goat\", 0)));\r\n\r\n        // Állatok piechart tulajdonságok beállítása\r\n        animalsChart.dataProperty().setValue(pieChartDataAnimal);\r\n        animalsChart.setClockwise(true);\r\n        animalsChart.setLabelsVisible(false);\r\n        animalsChart.setStartAngle(90);\r\n\r\n        //----------------------------------------------\r\n        // Termény vizualizáció\r\n\r\n        // BOX, TON - ról konvertálás KG-be\r\n        for (Forage forage:forageList) {\r\n            MeasurementUnit forageType = forage.getUnit();\r\n            long amount = 0;\r\n\r\n            switch (forageType){\r\n                case KG:\r\n                    amount = forage.getAmount();\r\n                    break;\r\n                case BOX:\r\n                    amount = forage.getAmount() * 40;\r\n                    break;\r\n                case TON:\r\n                    amount = forage.getAmount() * 1000;\r\n                    break;\r\n            }\r\n            forageCount.put(String.valueOf(forage.getName()), amount);\r\n        }\r\n\r\n        hayCount.setText(forageCount.getOrDefault(\"HAY\", (long) 0) + \"KG\");\r\n        wormCount.setText(forageCount.getOrDefault(\"WORM\", (long) 0) + \"KG\");\r\n        meatCount.setText(forageCount.getOrDefault(\"MEAT\", (long) 0) + \"KG\");\r\n        rootCount.setText(forageCount.getOrDefault(\"ROOT\", (long) 0) + \"KG\");\r\n        fungusCount.setText(forageCount.getOrDefault(\"FUNGUS\", (long) 0) + \"KG\");\r\n        seedCount.setText(forageCount.getOrDefault(\"SEED\", (long) 0) + \"KG\");\r\n\r\n        ObservableList<PieChart.Data> pieChartDataForage = FXCollections.observableArrayList(\r\n                new PieChart.Data(\"Hay\", forageCount.getOrDefault(\"HAY\", (long)0)),\r\n                new PieChart.Data(\"Worm\", forageCount.getOrDefault(\"WORM\", (long)0)),\r\n                new PieChart.Data(\"Meat\", forageCount.getOrDefault(\"MEAT\", (long)0)),\r\n                new PieChart.Data(\"Root\", forageCount.getOrDefault(\"ROOT\", (long)0)),\r\n                new PieChart.Data(\"Fungus\", forageCount.getOrDefault(\"FUNGUS\", (long)0)),\r\n                new PieChart.Data(\"Seed\", forageCount.getOrDefault(\"SEED\", (long) 0)));\r\n\r\n\r\n        foragesChart.dataProperty().setValue(pieChartDataForage);\r\n        foragesChart.setClockwise(true);\r\n        foragesChart.setLabelsVisible(false);\r\n        foragesChart.setStartAngle(90);\r\n\r\n        // visszalépés a mainWindow-ba\r\n        backButton.setOnAction(actionEvent -> new FadeController().fadeOut(\"/example/view/mainWindow.fxml\", rootPane));\r\n\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/BarnManager/src/main/notjava/example/controller/ChartController.java b/BarnManager/src/main/notjava/example/controller/ChartController.java
+--- a/BarnManager/src/main/notjava/example/controller/ChartController.java	(revision cf80f84cbf8649d8e3a13beac13c288203ec206a)
++++ b/BarnManager/src/main/notjava/example/controller/ChartController.java	(date 1620682256763)
+@@ -74,8 +74,8 @@
+         JpaForageDAO all = new JpaForageDAO();
+ 
+         // lekérjük a userhez tartozó istállókat
+-        List<Barn> barnListByUserId = dao.getBarnsByUserId(MainWindowController.userId);
+-        List<Forage> forageList = all.getForagesByUserId(MainWindowController.userId);
++        List<Barn> barnListByUserId = dao.getBarnsByUserId(BarnWindowController.userId);
++        List<Forage> forageList = all.getForagesByUserId(BarnWindowController.userId);
+         Map<String, Long> forageCount = new HashMap<>();
+ 
+         List<Animal> animalList;
+Index: BarnManager/src/main/notjava/example/controller/ForageWindowController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package example.controller;\r\n\r\nimport com.jfoenix.controls.JFXButton;\r\nimport com.jfoenix.controls.JFXListCell;\r\nimport com.jfoenix.controls.JFXListView;\r\nimport example.Database.DAO;\r\nimport example.Database.JpaForageDAO;\r\nimport example.model.Forage;\r\nimport example.model.ForageType;\r\nimport example.model.MeasurementUnit;\r\nimport javafx.fxml.FXML;\r\nimport javafx.collections.FXCollections;\r\nimport javafx.collections.ObservableList;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.Hyperlink;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.layout.AnchorPane;\r\nimport javafx.scene.layout.HBox;\r\nimport javafx.scene.layout.Pane;\r\nimport javafx.scene.layout.Priority;\r\n\r\nimport java.util.List;\r\n\r\npublic class ForageWindowController {\r\n\r\n    public static String username;\r\n\r\n    public String getUsername() {\r\n        return username;\r\n    }\r\n\r\n    public void setUsername(String username) {\r\n        this.username = username;\r\n    }\r\n\r\n    public static long userId;\r\n\r\n    public long getUserId() {\r\n        return userId;\r\n    }\r\n\r\n    public void setUserId(long userId) {\r\n        this.userId = userId;\r\n    }\r\n\r\n    @FXML\r\n    private AnchorPane rootPane;\r\n\r\n    @FXML\r\n    private Hyperlink backToMain;\r\n\r\n    @FXML\r\n    private Label usernameLabel;\r\n\r\n    @FXML\r\n    private JFXListView<Forage> forageListView;\r\n\r\n    @FXML\r\n    private JFXButton addForageButton;\r\n\r\n    private ObservableList<Forage> forages;\r\n\r\n    @FXML\r\n    void initialize(){\r\n        AddForageWindowController afw = new AddForageWindowController();\r\n        afw.setUserId(userId);\r\n        afw.setUsername(username);\r\n        forages = FXCollections.observableArrayList();\r\n        usernameLabel.setText(getUsername());\r\n        backToMain.setOnAction(actionEvent -> new FadeController().fadeOut(\"/example/view/mainWindow.fxml\", rootPane));\r\n        addForageButton.setOnAction(actionEvent -> new FadeController().fadeOut(\"/example/view/addForageWindow.fxml\", rootPane));\r\n\r\n        JpaForageDAO all = new JpaForageDAO();\r\n        forages = FXCollections.observableArrayList(all.getForagesByUserId(userId));\r\n\r\n        /*Forage myForage = new Forage();\r\n        myForage.setName(ForageType.HAY);\r\n        myForage.setAmount((long)200);\r\n        myForage.setUnit(MeasurementUnit.KG);\r\n\r\n        Forage myForage2 = new Forage();\r\n        myForage2.setName(ForageType.WORM);\r\n        myForage2.setAmount((long)50);\r\n        myForage2.setUnit(MeasurementUnit.BOX);\r\n\r\n        forages.addAll(myForage,myForage2);*/\r\n\r\n        forageListView.setItems(forages);\r\n        forageListView.setCellFactory(ForageCellController -> new ForageCellController());\r\n    }\r\n\r\n\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/BarnManager/src/main/notjava/example/controller/ForageWindowController.java b/BarnManager/src/main/notjava/example/controller/ForageWindowController.java
+--- a/BarnManager/src/main/notjava/example/controller/ForageWindowController.java	(revision cf80f84cbf8649d8e3a13beac13c288203ec206a)
++++ b/BarnManager/src/main/notjava/example/controller/ForageWindowController.java	(date 1620682256779)
+@@ -71,8 +71,9 @@
+         addForageButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/addForageWindow.fxml", rootPane));
+ 
+         JpaForageDAO all = new JpaForageDAO();
+-        forages = FXCollections.observableArrayList(all.getForagesByUserId(userId));
++        forages = FXCollections.observableArrayList(all.getForagesByUserId(1));
+ 
++        System.out.println(userId + "a forageban");
+         /*Forage myForage = new Forage();
+         myForage.setName(ForageType.HAY);
+         myForage.setAmount((long)200);

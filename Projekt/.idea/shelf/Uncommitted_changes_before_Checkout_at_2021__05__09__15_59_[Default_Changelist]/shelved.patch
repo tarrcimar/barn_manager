@@ -1,0 +1,199 @@
+Index: BarnManager/JavaFX11.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule=\"true\" type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"FacetManager\">\r\n    <facet type=\"jpa\" name=\"JPA\">\r\n      <configuration>\r\n        <setting name=\"validation-enabled\" value=\"true\" />\r\n        <datasource-mapping>\r\n          <factory-entry name=\"br.com.fredericci.pu\" />\r\n        </datasource-mapping>\r\n        <naming-strategy-map />\r\n        <deploymentDescriptor name=\"persistence.xml\" url=\"file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml\" />\r\n      </configuration>\r\n    </facet>\r\n  </component>\r\n  <component name=\"NewModuleRootManager\" LANGUAGE_LEVEL=\"JDK_11\">\r\n    <output url=\"file://$MODULE_DIR$/target/classes\" />\r\n    <output-test url=\"file://$MODULE_DIR$/target/test-classes\" />\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/main/resources\" type=\"java-resource\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/main/notjava\" isTestSource=\"false\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/test/java\" isTestSource=\"true\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/target\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.hibernate:hibernate-entitymanager:5.4.4.Final\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.jboss.logging:jboss-logging:3.3.2.Final\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.hibernate:hibernate-core:5.4.4.Final\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.javassist:javassist:3.24.0-GA\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: antlr:antlr:2.7.7\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.jboss:jandex:2.0.5.Final\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.fasterxml:classmate:1.3.4\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: javax.activation:javax.activation-api:1.2.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: javax.xml.bind:jaxb-api:2.3.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.glassfish.jaxb:jaxb-runtime:2.3.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.glassfish.jaxb:txw2:2.3.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.sun.istack:istack-commons-runtime:3.0.7\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.jvnet.staxex:stax-ex:1.8\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.15\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.dom4j:dom4j:2.1.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.hibernate.common:hibernate-commons-annotations:5.1.0.Final\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: javax.persistence:javax.persistence-api:2.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: net.bytebuddy:byte-buddy:1.9.11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.1.1.Final\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.h2database:h2:1.4.199\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-controls:11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-controls:win:11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-graphics:11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-graphics:win:11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-base:11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-base:win:11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-fxml:11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-fxml:win:11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.jfoenix:jfoenix:9.0.10\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.junit.jupiter:junit-jupiter:5.4.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.junit.jupiter:junit-jupiter-api:5.4.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.apiguardian:apiguardian-api:1.0.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.opentest4j:opentest4j:1.1.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.junit.platform:junit-platform-commons:1.4.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.junit.jupiter:junit-jupiter-params:5.4.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.junit.jupiter:junit-jupiter-engine:5.4.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.junit.platform:junit-platform-engine:1.4.2\" level=\"project\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/BarnManager/JavaFX11.iml b/BarnManager/JavaFX11.iml
+--- a/BarnManager/JavaFX11.iml	(revision cf80f84cbf8649d8e3a13beac13c288203ec206a)
++++ b/BarnManager/JavaFX11.iml	(date 1620571248223)
+@@ -23,6 +23,7 @@
+     </content>
+     <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="library" name="Maven: com.jfoenix:jfoenix:9.0.10" level="project" />
+     <orderEntry type="library" name="Maven: org.hibernate:hibernate-entitymanager:5.4.4.Final" level="project" />
+     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" level="project" />
+     <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:5.4.4.Final" level="project" />
+@@ -60,5 +61,6 @@
+     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-params:5.4.2" level="project" />
+     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.4.2" level="project" />
+     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.4.2" level="project" />
++    <orderEntry type="library" name="jfoenix-9.0.10" level="project" />
+   </component>
+ </module>
+\ No newline at end of file
+Index: BarnManager/src/main/notjava/example/view/mainWindow.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import com.jfoenix.controls.JFXButton?>\r\n<?import javafx.scene.control.Hyperlink?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.image.Image?>\r\n<?import javafx.scene.image.ImageView?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n\r\n<AnchorPane fx:id=\"rootPane\" prefHeight=\"400.0\" prefWidth=\"700.0\" xmlns=\"http://javafx.com/javafx/16\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"example.controller.MainWindowController\">\r\n   <children>\r\n      <AnchorPane prefHeight=\"61.0\" prefWidth=\"708.0\" style=\"-fx-background-color: #00897b;\">\r\n         <children>\r\n            <ImageView fitHeight=\"150.0\" fitWidth=\"200.0\" layoutX=\"3.0\" layoutY=\"4.0\" pickOnBounds=\"true\" preserveRatio=\"true\">\r\n               <image>\r\n                  <Image url=\"@../assets/logo.png\" />\r\n               </image>\r\n            </ImageView>\r\n         </children>\r\n      </AnchorPane>\r\n      <Hyperlink fx:id=\"logOutLink\" layoutX=\"14.0\" layoutY=\"363.0\" text=\"Log out\" />\r\n      <Label layoutX=\"14.0\" layoutY=\"67.0\" text=\"Logged in as:\" />\r\n      <Label fx:id=\"usernameLabel\" layoutX=\"93.0\" layoutY=\"67.0\" style=\"-fx-font-weight: BOLD;\" text=\"blank\" />\r\n      <JFXButton fx:id=\"forageButton\" layoutX=\"546.0\" layoutY=\"84.0\" style=\"-fx-background-color: #4ebaaa;\" text=\"Forages\" />\r\n      <JFXButton fx:id=\"insightsButton\" layoutX=\"633.0\" layoutY=\"84.0\" style=\"-fx-background-color: #4ebaaa;\" text=\"Insights\" />\r\n      <JFXButton fx:id=\"listaElem\" layoutX=\"642.0\" layoutY=\"145.0\" style=\"-fx-background-color: #4ebaaa;\" text=\"Lista\" />\r\n   </children>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/BarnManager/src/main/notjava/example/view/mainWindow.fxml b/BarnManager/src/main/notjava/example/view/mainWindow.fxml
+--- a/BarnManager/src/main/notjava/example/view/mainWindow.fxml	(revision cf80f84cbf8649d8e3a13beac13c288203ec206a)
++++ b/BarnManager/src/main/notjava/example/view/mainWindow.fxml	(date 1620566955864)
+@@ -1,13 +1,11 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+-<?import com.jfoenix.controls.JFXButton?>
+-<?import javafx.scene.control.Hyperlink?>
+-<?import javafx.scene.control.Label?>
+ <?import javafx.scene.image.Image?>
+ <?import javafx.scene.image.ImageView?>
+ <?import javafx.scene.layout.AnchorPane?>
+ 
+-<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.controller.MainWindowController">
++
++<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.controller.MainWindowController">
+    <children>
+       <AnchorPane prefHeight="61.0" prefWidth="708.0" style="-fx-background-color: #00897b;">
+          <children>
+@@ -18,11 +16,5 @@
+             </ImageView>
+          </children>
+       </AnchorPane>
+-      <Hyperlink fx:id="logOutLink" layoutX="14.0" layoutY="363.0" text="Log out" />
+-      <Label layoutX="14.0" layoutY="67.0" text="Logged in as:" />
+-      <Label fx:id="usernameLabel" layoutX="93.0" layoutY="67.0" style="-fx-font-weight: BOLD;" text="blank" />
+-      <JFXButton fx:id="forageButton" layoutX="546.0" layoutY="84.0" style="-fx-background-color: #4ebaaa;" text="Forages" />
+-      <JFXButton fx:id="insightsButton" layoutX="633.0" layoutY="84.0" style="-fx-background-color: #4ebaaa;" text="Insights" />
+-      <JFXButton fx:id="listaElem" layoutX="642.0" layoutY="145.0" style="-fx-background-color: #4ebaaa;" text="Lista" />
+    </children>
+ </AnchorPane>
+Index: .idea/libraries/jfoenix_9_0_10.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/jfoenix_9_0_10.xml b/.idea/libraries/jfoenix_9_0_10.xml
+new file mode 100644
+--- /dev/null	(date 1620571248276)
++++ b/.idea/libraries/jfoenix_9_0_10.xml	(date 1620571248276)
+@@ -0,0 +1,9 @@
++<component name="libraryTable">
++  <library name="jfoenix-9.0.10">
++    <CLASSES>
++      <root url="jar://$PROJECT_DIR$/../../../javafonix/jfoenix-9.0.10.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++  </library>
++</component>
+\ No newline at end of file
+Index: BarnManager/src/main/notjava/example/controller/MainWindowController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package example.controller;\r\n\r\nimport com.jfoenix.controls.JFXButton;\r\nimport example.Database.DAO;\r\nimport example.Database.JpaDAO;\r\nimport example.model.Animal;\r\nimport example.model.Barn;\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.*;\r\nimport javafx.scene.layout.AnchorPane;\r\n\r\nimport java.net.URL;\r\nimport java.util.List;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class MainWindowController {\r\n    public static long userId;\r\n\r\n    public long getUserId() {\r\n        return userId;\r\n    }\r\n\r\n    public void setUserId(long userId) {\r\n        this.userId = userId;\r\n    }\r\n\r\n    public static String username;\r\n\r\n    public String getUsername() {\r\n        return username;\r\n    }\r\n\r\n    public void setUsername(String username) {\r\n        this.username = username;\r\n    }\r\n\r\n    @FXML\r\n    private ResourceBundle resources;\r\n\r\n    @FXML\r\n    private URL location;\r\n\r\n\r\n    @FXML\r\n    private AnchorPane rootPane;\r\n\r\n    @FXML\r\n    private Hyperlink logOutLink;\r\n\r\n    @FXML\r\n    private Label usernameLabel;\r\n\r\n    @FXML\r\n    private JFXButton forageButton;\r\n\r\n    @FXML\r\n    private JFXButton insightsButton;\r\n\r\n    @FXML\r\n    private JFXButton listaElem;\r\n\r\n    @FXML\r\n    void initialize() throws InterruptedException {\r\n        ForageWindowController fw = new ForageWindowController();\r\n        fw.setUserId(userId);\r\n        fw.setUsername(username);\r\n\r\n        ListController ls = new ListController();\r\n        ls.setUserId(userId);\r\n        ls.setUsername(username);\r\n\r\n        logOutLink.setOnAction(actionEvent -> changeToLogin());\r\n        usernameLabel.setText(getUsername());\r\n\r\n        //ugrás a chartra\r\n        insightsButton.setOnAction(actionEvent -> new FadeController().fadeOut(\"/example/view/chart.fxml\", rootPane));\r\n\r\n        //ugrás takarmányablakra\r\n        forageButton.setOnAction(actionEvent -> new FadeController().fadeOut(\"/example/view/forageWindow.fxml\", rootPane));\r\n\r\n        //ugrás a listára\r\n        listaElem.setOnAction(actionEvent -> new FadeController().fadeOut(\"/example/view/list.fxml\",rootPane));\r\n\r\n        /* példák a lekérdezésekre\r\n\r\n        DAO all = new JpaDAO();\r\n        System.out.println(\"In main window: \" + userId);\r\n        List<Barn> barnList = all.getBarnsByUserId(userId);\r\n        foreach (Barn b : barnList){\r\n            System.out.println(b.getName());\r\n        }\r\n\r\n        List<Animal> animalList = all.getAnimalsByBarnId(1);\r\n        System.out.println(animalList.size());\r\n        for (Animal a: animalList) {\r\n            System.out.println(a.getType() + \" \" + a.getId());\r\n        }\r\n         */\r\n    }\r\n    //change the screen back to the login screen\r\n    private void changeToLogin(){\r\n        FadeController fadeController = new FadeController();\r\n        fadeController.fadeOut(\"/example/view/login.fxml\", rootPane);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/BarnManager/src/main/notjava/example/controller/MainWindowController.java b/BarnManager/src/main/notjava/example/controller/MainWindowController.java
+--- a/BarnManager/src/main/notjava/example/controller/MainWindowController.java	(revision cf80f84cbf8649d8e3a13beac13c288203ec206a)
++++ b/BarnManager/src/main/notjava/example/controller/MainWindowController.java	(date 1620567155358)
+@@ -1,16 +1,9 @@
+ package example.controller;
+ 
+-import com.jfoenix.controls.JFXButton;
+-import example.Database.DAO;
+-import example.Database.JpaDAO;
+-import example.model.Animal;
+-import example.model.Barn;
++
+ import javafx.fxml.FXML;
+-import javafx.scene.control.*;
+-import javafx.scene.layout.AnchorPane;
+ 
+ import java.net.URL;
+-import java.util.List;
+ import java.util.ResourceBundle;
+ 
+ public class MainWindowController {
+@@ -24,82 +17,17 @@
+         this.userId = userId;
+     }
+ 
+-    public static String username;
+-
+-    public String getUsername() {
+-        return username;
+-    }
+-
+-    public void setUsername(String username) {
+-        this.username = username;
+-    }
+-
+     @FXML
+     private ResourceBundle resources;
+ 
+     @FXML
+     private URL location;
+ 
+-
+-    @FXML
+-    private AnchorPane rootPane;
+-
+-    @FXML
+-    private Hyperlink logOutLink;
+-
+-    @FXML
+-    private Label usernameLabel;
+-
+-    @FXML
+-    private JFXButton forageButton;
+-
+-    @FXML
+-    private JFXButton insightsButton;
+-
+-    @FXML
+-    private JFXButton listaElem;
+-
+     @FXML
+-    void initialize() throws InterruptedException {
+-        ForageWindowController fw = new ForageWindowController();
+-        fw.setUserId(userId);
+-        fw.setUsername(username);
+-
+-        ListController ls = new ListController();
+-        ls.setUserId(userId);
+-        ls.setUsername(username);
+-
+-        logOutLink.setOnAction(actionEvent -> changeToLogin());
+-        usernameLabel.setText(getUsername());
+-
+-        //ugrás a chartra
+-        insightsButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/chart.fxml", rootPane));
+-
+-        //ugrás takarmányablakra
+-        forageButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/forageWindow.fxml", rootPane));
+-
+-        //ugrás a listára
+-        listaElem.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/list.fxml",rootPane));
+-
+-        /* példák a lekérdezésekre
+-
+-        DAO all = new JpaDAO();
+-        System.out.println("In main window: " + userId);
+-        List<Barn> barnList = all.getBarnsByUserId(userId);
+-        foreach (Barn b : barnList){
+-            System.out.println(b.getName());
+-        }
++    void initialize() {
++        System.out.println("In mainwindow: " + userId);
++    }
+ 
+-        List<Animal> animalList = all.getAnimalsByBarnId(1);
+-        System.out.println(animalList.size());
+-        for (Animal a: animalList) {
+-            System.out.println(a.getType() + " " + a.getId());
+-        }
+-         */
+-    }
+-    //change the screen back to the login screen
+-    private void changeToLogin(){
+-        FadeController fadeController = new FadeController();
+-        fadeController.fadeOut("/example/view/login.fxml", rootPane);
++    public void setUsername(String username) {
+     }
+ }
