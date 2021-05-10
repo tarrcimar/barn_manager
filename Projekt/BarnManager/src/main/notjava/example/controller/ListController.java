@@ -22,6 +22,18 @@ public class ListController {
         this.userId = userId;
     }
 
+
+    public static long barnId;
+
+    public long getBarnId() {
+        return barnId;
+    }
+
+    public void setBarnId(long barnId) {
+        this.barnId = barnId;
+    }
+
+
     public static String username;
 
     public String getUsername() {
@@ -55,7 +67,7 @@ public class ListController {
         usernameLabel.setText(getUsername());
 
         JpaAnimalDAO all = new JpaAnimalDAO();
-        animals = FXCollections.observableArrayList(all.getAnimalsByBarnId(1));
+        animals = FXCollections.observableArrayList(all.getAnimalsByBarnId(barnId));
 
         barnList.setItems(animals);
         barnList.setCellFactory(ListCellController -> new ListCellController());

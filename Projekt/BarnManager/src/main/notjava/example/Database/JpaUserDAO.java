@@ -1,5 +1,6 @@
 package example.Database;
 
+import example.model.Barn;
 import example.model.User;
 
 import javax.persistence.EntityManager;
@@ -38,6 +39,16 @@ public class JpaUserDAO implements UserDAO{
         TypedQuery<User> query = entityManager.createQuery("SELECT u FROM User u", User.class);
         List<User> users = query.getResultList();
         return users;
+    }
+
+    public User getUserById(long id) {
+        User returnUser = new User();
+        List<User> users = getUsers();
+        for(User user : users){
+            if(user.getId() == id)
+                returnUser = user;
+        }
+        return returnUser;
     }
 
     @Override

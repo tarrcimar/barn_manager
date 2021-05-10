@@ -49,6 +49,7 @@ public class LoginController {
     void initialize() {
         FXMLLoader loader = new FXMLLoader();
         MainWindowController window = new MainWindowController();
+        BarnWindowController bwindow = new BarnWindowController();
 
         FadeController fadeController = new FadeController();
 
@@ -82,8 +83,10 @@ public class LoginController {
             else{
                 System.out.println("In login: " + userId);
                 window.setUserId(userId);
+                bwindow.setUserId(userId);
                 window.setUsername(username);
-                fadeController.fadeOut("/example/view/mainWindow.fxml", rootPane);
+                bwindow.setUsername(username);
+                fadeController.fadeOut("/example/view/barnWindow.fxml", rootPane);
             }
 
         });
