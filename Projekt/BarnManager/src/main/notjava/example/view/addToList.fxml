@@ -27,7 +27,7 @@
       </AnchorPane>
       <Label layoutX="14.0" layoutY="74.0" text="Logged in as:" />
       <Label fx:id="usernameLabel" layoutX="93.0" layoutY="74.0" style="-fx-font-weight: BOLD;" text="blank" />
-      <GridPane layoutX="154.0" layoutY="127.0" prefHeight="202.0" prefWidth="385.0">
+      <GridPane layoutX="138.0" layoutY="114.0" prefHeight="202.0" prefWidth="385.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="194.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="178.0" />
@@ -37,10 +37,9 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label text="Animal name:" GridPane.halignment="RIGHT">
+            <Label text="Gender:" GridPane.halignment="RIGHT">
                <font>
                   <Font size="20.0" />
                </font>
@@ -48,7 +47,7 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <Label text="Gender:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+            <Label text="Type:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                <font>
                   <Font size="20.0" />
                </font>
@@ -56,7 +55,8 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <Label text="Type:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+            <ChoiceBox fx:id="genderChoice" prefHeight="25.0" prefWidth="203.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" />
+            <Label layoutX="147.0" layoutY="97.0" text="Acivity:" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                <font>
                   <Font size="20.0" />
                </font>
@@ -64,9 +64,7 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <ChoiceBox fx:id="genderChoice" prefHeight="25.0" prefWidth="203.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" />
-            <ChoiceBox fx:id="animalTypeChoice" prefHeight="25.0" prefWidth="194.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label layoutX="147.0" layoutY="97.0" text="Acivity:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+            <Label text="Comment:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                <font>
                   <Font size="20.0" />
                </font>
@@ -74,17 +72,9 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <Label text="Comment:" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
-               <font>
-                  <Font size="20.0" />
-               </font>
-               <padding>
-                  <Insets right="10.0" />
-               </padding>
-            </Label>
-            <TextField fx:id="nameField" GridPane.columnIndex="1" />
-            <TextField fx:id="activityField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="commentField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="activityField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="commentField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ChoiceBox fx:id="typeChoice" prefHeight="25.0" prefWidth="203.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Button fx:id="addToListButton" layoutX="307.0" layoutY="347.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" style="-fx-background-color: #4ebaaa;" text="Add to List" />

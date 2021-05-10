@@ -11,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
+import java.time.LocalDate;
+
 public class ListController {
     public static long userId;
 
@@ -55,6 +57,7 @@ public class ListController {
         usernameLabel.setText(getUsername());
 
         JpaAnimalDAO all = new JpaAnimalDAO();
+
         animals = FXCollections.observableArrayList(all.getAnimalsByBarnId(1));
 
         barnList.setItems(animals);

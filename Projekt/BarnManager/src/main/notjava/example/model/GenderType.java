@@ -1,5 +1,5 @@
 package example.model;
 
-public enum GenderType {
+public enum GenderType{
     MALE, FEMALE
 }

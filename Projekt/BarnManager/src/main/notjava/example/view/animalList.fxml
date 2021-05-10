@@ -3,7 +3,6 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXListView?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -21,19 +20,11 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <JFXListView fx:id="barnList" layoutY="130.0" prefHeight="273.0" prefWidth="701.0">
-               <effect>
-                  <DropShadow />
-               </effect>
-            </JFXListView>
+            <JFXListView fx:id="barnList" layoutY="130.0" prefHeight="273.0" prefWidth="701.0" />
             <Label layoutX="516.0" layoutY="66.0" text="Logged in as:" />
-            <Label fx:id="usernameLabel" layoutX="594.0" layoutY="66.0" style="-fx-font-weight: BOLD;" text="blank">
-               <effect>
-                  <DropShadow />
-               </effect>
-            </Label>
-            <JFXButton fx:id="addAnimalButton" layoutX="14.0" layoutY="86.0" style="-fx-background-color: #4ebaaa;" text="Add new Animal" />
-            <JFXButton fx:id="backToMain" layoutX="561.0" layoutY="86.0" style="-fx-background-color: #00897b;" text="Back To Main" />
+            <Label fx:id="usernameLabel" layoutX="594.0" layoutY="66.0" style="-fx-font-weight: BOLD;" text="blank" />
+            <JFXButton fx:id="addAnimalButton" layoutX="14.0" layoutY="86.0" style="-fx-background-color: #4ebaaa;" text="Add New Animal" />
+            <JFXButton fx:id="backToMain" layoutX="594.0" layoutY="86.0" style="-fx-background-color: #4ebaaa;" text="Back To Main" />
          </children>
       </AnchorPane>
    </children>

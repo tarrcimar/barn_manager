@@ -1,11 +1,13 @@
 package example.Database;
 
 import example.model.Barn;
+import example.model.Forage;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import java.util.ArrayList;
 import java.util.List;
 
 public class JpaBarnDAO implements BarnDAO{
@@ -36,6 +38,18 @@ public class JpaBarnDAO implements BarnDAO{
         TypedQuery<Barn> query = entityManager.createQuery("SELECT b FROM Barn b", Barn.class);
         List<Barn> barns = query.getResultList();
         return barns;
+    }
+
+    @Override
+    public Barn getBarnById(long id) {
+        Barn returnBarn = new Barn();
+        List<Barn> barns = getBarns();
+        for (Barn barn : barns) {
+            if(barn.getId() == id){
+                returnBarn = barn;
+            }
+        }
+        return returnBarn;
     }
 
     @Override

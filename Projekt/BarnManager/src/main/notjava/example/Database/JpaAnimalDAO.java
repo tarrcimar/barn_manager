@@ -1,8 +1,6 @@
 package example.Database;
 
 import example.model.Animal;
-import example.model.Barn;
-import example.model.Forage;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

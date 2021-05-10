@@ -9,9 +9,7 @@ import javafx.fxml.FXML;
 import example.model.GenderType;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.control.Alert;
 import example.Database.JpaAnimalDAO;
 import javafx.scene.layout.AnchorPane;
 
@@ -90,6 +88,7 @@ public class ListCellController extends JFXListCell<Animal> {
     protected void updateItem(Animal myAnimal, boolean empty) {
         super.updateItem(myAnimal, empty);
 
+
         if(empty || myAnimal == null){
             setText(null);
             setGraphic(null);
@@ -106,6 +105,23 @@ public class ListCellController extends JFXListCell<Animal> {
                 }
             }
 
+            namefield.setEditable(false);
+            namefield.setText(myAnimal.getId().toString());
+            genderfield.setEditable(false);
+            genderfield.setText(myAnimal.getGender().toString());
+            typefield.setEditable(false);
+            typefield.setText(myAnimal.getType());
+            datefield.setEditable(false);
+            if (myAnimal.getAddedOn() != null)
+            {
+                datefield.setText(myAnimal.getAddedOn().toString());
+            }
+            if (myAnimal.getActivity() != null) {
+                activityfield.setText(myAnimal.getActivity().toString());
+            }
+            if (myAnimal.getComment() != null) {
+                commentField.setText(myAnimal.getComment());
+            }
             //gomb interakciók
             removeFromList.setOnMouseClicked(event -> removeButtonClicked(myAnimal));
             fixListUnit.setOnMouseClicked(event -> editButtonClicked(myAnimal));

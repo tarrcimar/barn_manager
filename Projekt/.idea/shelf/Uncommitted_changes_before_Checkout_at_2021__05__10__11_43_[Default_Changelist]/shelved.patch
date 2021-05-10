@@ -1,0 +1,298 @@
+Index: .idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Maven: org.glassfish.jaxb:txw2:2.3.1\">\r\n    <CLASSES>\r\n      <root url=\"jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/txw2/2.3.1/txw2-2.3.1.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/txw2/2.3.1/txw2-2.3.1-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/txw2/2.3.1/txw2-2.3.1-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_1.xml b/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_1.xml
+--- a/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_1.xml	(revision c1fcdb24d0c95df8c1cde83cec7d82a294e74421)
++++ b/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_1.xml	(date 1620070592093)
+@@ -1,13 +1,13 @@
+ <component name="libraryTable">
+-  <library name="Maven: org.glassfish.jaxb:txw2:2.3.1">
++  <library name="Maven: javax.xml.bind:jaxb-api:2.3.1">
+     <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/txw2/2.3.1/txw2-2.3.1.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar!/" />
+     </CLASSES>
+     <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/txw2/2.3.1/txw2-2.3.1-javadoc.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1-javadoc.jar!/" />
+     </JAVADOC>
+     <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/txw2/2.3.1/txw2-2.3.1-sources.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1-sources.jar!/" />
+     </SOURCES>
+   </library>
+ </component>
+\ No newline at end of file
+Index: BarnManager/src/main/notjava/example/controller/ListController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package example.controller;\r\n\r\nimport com.jfoenix.controls.JFXButton;\r\nimport com.jfoenix.controls.JFXListView;\r\nimport example.Database.JpaAnimalDAO;\r\nimport example.Database.JpaForageDAO;\r\nimport example.model.Animal;\r\nimport javafx.collections.FXCollections;\r\nimport javafx.collections.ObservableList;\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.layout.AnchorPane;\r\n\r\npublic class ListController {\r\n    public static long userId;\r\n\r\n    public long getUserId() {\r\n        return userId;\r\n    }\r\n\r\n    public void setUserId(long userId) {\r\n        this.userId = userId;\r\n    }\r\n\r\n    public static String username;\r\n\r\n    public String getUsername() {\r\n        return username;\r\n    }\r\n\r\n    public void setUsername(String username) {\r\n        this.username = username;\r\n    }\r\n\r\n    @FXML\r\n    private AnchorPane rootPane;\r\n\r\n    @FXML\r\n    private JFXButton backToMain;\r\n\r\n    @FXML\r\n    private Label usernameLabel;\r\n\r\n    @FXML\r\n    private JFXButton addAnimalButton;\r\n\r\n\r\n    @FXML\r\n    private JFXListView<Animal> barnList;\r\n\r\n    private ObservableList<Animal> animals;\r\n\r\n    @FXML\r\n    void initialize(){\r\n        usernameLabel.setText(getUsername());\r\n\r\n        JpaAnimalDAO all = new JpaAnimalDAO();\r\n        animals = FXCollections.observableArrayList(all.getAnimalsByBarnId(1));\r\n\r\n        barnList.setItems(animals);\r\n        barnList.setCellFactory(ListCellController -> new ListCellController());\r\n        backToMain.setOnAction(actionEvent -> new FadeController().fadeOut(\"/example/view/mainWindow.fxml\", rootPane));\r\n        addAnimalButton.setOnAction(actionEvent -> new FadeController().fadeOut(\"/example/view/addToList.fxml\", rootPane));\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/BarnManager/src/main/notjava/example/controller/ListController.java b/BarnManager/src/main/notjava/example/controller/ListController.java
+--- a/BarnManager/src/main/notjava/example/controller/ListController.java	(revision c1fcdb24d0c95df8c1cde83cec7d82a294e74421)
++++ b/BarnManager/src/main/notjava/example/controller/ListController.java	(date 1620639401149)
+@@ -3,7 +3,6 @@
+ import com.jfoenix.controls.JFXButton;
+ import com.jfoenix.controls.JFXListView;
+ import example.Database.JpaAnimalDAO;
+-import example.Database.JpaForageDAO;
+ import example.model.Animal;
+ import javafx.collections.FXCollections;
+ import javafx.collections.ObservableList;
+@@ -44,7 +43,6 @@
+     @FXML
+     private JFXButton addAnimalButton;
+ 
+-
+     @FXML
+     private JFXListView<Animal> barnList;
+ 
+Index: BarnManager/src/main/notjava/example/controller/ListCellController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package example.controller;\r\n\r\nimport com.jfoenix.controls.JFXListCell;\r\nimport java.io.IOException;\r\nimport java.net.URL;\r\nimport java.util.ResourceBundle;\r\nimport example.model.Animal;\r\nimport javafx.fxml.FXML;\r\nimport example.model.GenderType;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.control.TextField;\r\nimport javafx.scene.image.Image;\r\nimport javafx.scene.image.ImageView;\r\nimport javafx.scene.control.Alert;\r\nimport example.Database.JpaAnimalDAO;\r\nimport javafx.scene.layout.AnchorPane;\r\n\r\npublic class ListCellController extends JFXListCell<Animal> {\r\n\r\n    @FXML\r\n    private ResourceBundle resources;\r\n\r\n    @FXML\r\n    private URL location;\r\n\r\n    @FXML\r\n    private ImageView removeFromList;\r\n\r\n    @FXML\r\n    private ImageView fixListUnit;\r\n\r\n    @FXML\r\n    private TextField namefield;\r\n\r\n    @FXML\r\n    private TextField genderfield;\r\n\r\n    @FXML\r\n    private TextField typefield;\r\n\r\n    @FXML\r\n    private TextField datefield;\r\n\r\n    @FXML\r\n    private TextField activityfield;\r\n\r\n    @FXML\r\n    private TextField commentField;\r\n\r\n    @FXML\r\n    private AnchorPane rootAnchorPane;\r\n\r\n    private FXMLLoader fxmlLoader;\r\n\r\n    private void editButtonClicked(Animal myAnimal){\r\n        String animalname = namefield.getText();\r\n        String gender = genderfield.getText();\r\n        String type = typefield.getText();\r\n        int activity = Integer.parseInt(activityfield.getText());\r\n        String comment = commentField.getText();\r\n\r\n        GenderType gendertype = GenderType.FEMALE;\r\n        if (gender == \"MALE\")\r\n        {\r\n            gendertype = GenderType.MALE;\r\n        }\r\n        else if(gender == \"FEMALE\")\r\n        {\r\n          gendertype = GenderType.FEMALE;\r\n        }\r\n        myAnimal.setGender(gendertype);\r\n\r\n        myAnimal.setType(type);\r\n        myAnimal.setActivity(activity);\r\n        myAnimal.setComment(comment);\r\n        JpaAnimalDAO janos = new JpaAnimalDAO();\r\n        janos.updateAnimal(myAnimal);\r\n    }\r\n    private void removeButtonClicked(Animal myAnimal){\r\n        JpaAnimalDAO jozsef = new JpaAnimalDAO();\r\n        jozsef.deleteAnimal(myAnimal);\r\n    }\r\n\r\n    @FXML\r\n    void initialize() {\r\n\r\n\r\n    }\r\n    @Override\r\n    protected void updateItem(Animal myAnimal, boolean empty) {\r\n        super.updateItem(myAnimal, empty);\r\n\r\n        if(empty || myAnimal == null){\r\n            setText(null);\r\n            setGraphic(null);\r\n        }\r\n        else{\r\n            if(fxmlLoader == null){\r\n                fxmlLoader = new FXMLLoader(getClass().getResource(\"/example/view/listcell.fxml\"));\r\n                fxmlLoader.setController(this);\r\n\r\n                try {\r\n                    fxmlLoader.load();\r\n                } catch (IOException e) {\r\n                    e.printStackTrace();\r\n                }\r\n            }\r\n\r\n            //gomb interakciók\r\n            removeFromList.setOnMouseClicked(event -> removeButtonClicked(myAnimal));\r\n            fixListUnit.setOnMouseClicked(event -> editButtonClicked(myAnimal));\r\n\r\n            setText(null);\r\n            setGraphic(rootAnchorPane);\r\n        }\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/BarnManager/src/main/notjava/example/controller/ListCellController.java b/BarnManager/src/main/notjava/example/controller/ListCellController.java
+--- a/BarnManager/src/main/notjava/example/controller/ListCellController.java	(revision c1fcdb24d0c95df8c1cde83cec7d82a294e74421)
++++ b/BarnManager/src/main/notjava/example/controller/ListCellController.java	(date 1620639678190)
+@@ -17,12 +17,6 @@
+ 
+ public class ListCellController extends JFXListCell<Animal> {
+ 
+-    @FXML
+-    private ResourceBundle resources;
+-
+-    @FXML
+-    private URL location;
+-
+     @FXML
+     private ImageView removeFromList;
+ 
+@@ -106,9 +100,8 @@
+                 }
+             }
+ 
+-            //gomb interakciók
+-            removeFromList.setOnMouseClicked(event -> removeButtonClicked(myAnimal));
+-            fixListUnit.setOnMouseClicked(event -> editButtonClicked(myAnimal));
++            //removeFromList.setOnMouseClicked(event -> removeButtonClicked(myAnimal));
++            //fixListUnit.setOnMouseClicked(event -> editButtonClicked(myAnimal));
+ 
+             setText(null);
+             setGraphic(rootAnchorPane);
+Index: .idea/libraries/Maven__javax_persistence_javax_persistence_api_2_22.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__javax_persistence_javax_persistence_api_2_22.xml b/.idea/libraries/Maven__javax_persistence_javax_persistence_api_2_22.xml
+new file mode 100644
+--- /dev/null	(date 1620070566329)
++++ b/.idea/libraries/Maven__javax_persistence_javax_persistence_api_2_22.xml	(date 1620070566329)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: javax.persistence:javax.persistence-api:2.2">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_hibernate_hibernate_core_5_4_4_Final.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Maven: org.hibernate:hibernate-core:5.4.4.Final\">\r\n    <CLASSES>\r\n      <root url=\"jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.4.4.Final/hibernate-core-5.4.4.Final.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.4.4.Final/hibernate-core-5.4.4.Final-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.4.4.Final/hibernate-core-5.4.4.Final-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_hibernate_hibernate_core_5_4_4_Final.xml b/.idea/libraries/Maven__org_hibernate_hibernate_core_5_4_4_Final.xml
+--- a/.idea/libraries/Maven__org_hibernate_hibernate_core_5_4_4_Final.xml	(revision c1fcdb24d0c95df8c1cde83cec7d82a294e74421)
++++ b/.idea/libraries/Maven__org_hibernate_hibernate_core_5_4_4_Final.xml	(date 1620070592108)
+@@ -1,13 +1,13 @@
+ <component name="libraryTable">
+-  <library name="Maven: org.hibernate:hibernate-core:5.4.4.Final">
++  <library name="Maven: net.bytebuddy:byte-buddy:1.9.11">
+     <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.4.4.Final/hibernate-core-5.4.4.Final.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy/1.9.11/byte-buddy-1.9.11.jar!/" />
+     </CLASSES>
+     <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.4.4.Final/hibernate-core-5.4.4.Final-javadoc.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy/1.9.11/byte-buddy-1.9.11-javadoc.jar!/" />
+     </JAVADOC>
+     <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.4.4.Final/hibernate-core-5.4.4.Final-sources.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy/1.9.11/byte-buddy-1.9.11-sources.jar!/" />
+     </SOURCES>
+   </library>
+ </component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Maven: org.glassfish.jaxb:jaxb-runtime:2.3.1\">\r\n    <CLASSES>\r\n      <root url=\"jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-runtime-2.3.1.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-runtime-2.3.1-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-runtime-2.3.1-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_1.xml b/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_1.xml
+--- a/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_1.xml	(revision c1fcdb24d0c95df8c1cde83cec7d82a294e74421)
++++ b/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_1.xml	(date 1620070592077)
+@@ -1,13 +1,13 @@
+ <component name="libraryTable">
+-  <library name="Maven: org.glassfish.jaxb:jaxb-runtime:2.3.1">
++  <library name="Maven: javax.activation:javax.activation-api:1.2.0">
+     <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-runtime-2.3.1.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar!/" />
+     </CLASSES>
+     <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-runtime-2.3.1-javadoc.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0-javadoc.jar!/" />
+     </JAVADOC>
+     <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-runtime-2.3.1-sources.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0-sources.jar!/" />
+     </SOURCES>
+   </library>
+ </component>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"JavaScriptSettings\">\r\n    <option name=\"languageLevel\" value=\"ES6\" />\r\n  </component>\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n        <option value=\"$PROJECT_DIR$/BarnManager/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"false\" project-jdk-name=\"11\" project-jdk-type=\"JavaSDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision c1fcdb24d0c95df8c1cde83cec7d82a294e74421)
++++ b/.idea/misc.xml	(date 1620638880242)
+@@ -11,5 +11,5 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="11" project-jdk-type="JavaSDK" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="corretto-11" project-jdk-type="JavaSDK" />
+ </project>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_0_Final.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Maven: org.hibernate.common:hibernate-commons-annotations:5.1.0.Final\">\r\n    <CLASSES>\r\n      <root url=\"jar://$MAVEN_REPOSITORY$/org/hibernate/common/hibernate-commons-annotations/5.1.0.Final/hibernate-commons-annotations-5.1.0.Final.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$MAVEN_REPOSITORY$/org/hibernate/common/hibernate-commons-annotations/5.1.0.Final/hibernate-commons-annotations-5.1.0.Final-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$MAVEN_REPOSITORY$/org/hibernate/common/hibernate-commons-annotations/5.1.0.Final/hibernate-commons-annotations-5.1.0.Final-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_0_Final.xml b/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_0_Final.xml
+--- a/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_0_Final.xml	(revision c1fcdb24d0c95df8c1cde83cec7d82a294e74421)
++++ b/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_0_Final.xml	(date 1620070592093)
+@@ -1,13 +1,13 @@
+ <component name="libraryTable">
+-  <library name="Maven: org.hibernate.common:hibernate-commons-annotations:5.1.0.Final">
++  <library name="Maven: org.dom4j:dom4j:2.1.1">
+     <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/common/hibernate-commons-annotations/5.1.0.Final/hibernate-commons-annotations-5.1.0.Final.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/org/dom4j/dom4j/2.1.1/dom4j-2.1.1.jar!/" />
+     </CLASSES>
+     <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/common/hibernate-commons-annotations/5.1.0.Final/hibernate-commons-annotations-5.1.0.Final-javadoc.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/org/dom4j/dom4j/2.1.1/dom4j-2.1.1-javadoc.jar!/" />
+     </JAVADOC>
+     <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/common/hibernate-commons-annotations/5.1.0.Final/hibernate-commons-annotations-5.1.0.Final-sources.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/org/dom4j/dom4j/2.1.1/dom4j-2.1.1-sources.jar!/" />
+     </SOURCES>
+   </library>
+ </component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_4_4_Final.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Maven: org.hibernate:hibernate-entitymanager:5.4.4.Final\">\r\n    <CLASSES>\r\n      <root url=\"jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-entitymanager/5.4.4.Final/hibernate-entitymanager-5.4.4.Final.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-entitymanager/5.4.4.Final/hibernate-entitymanager-5.4.4.Final-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-entitymanager/5.4.4.Final/hibernate-entitymanager-5.4.4.Final-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_4_4_Final.xml b/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_4_4_Final.xml
+--- a/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_4_4_Final.xml	(revision c1fcdb24d0c95df8c1cde83cec7d82a294e74421)
++++ b/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_5_4_4_Final.xml	(date 1620070592108)
+@@ -1,13 +1,13 @@
+ <component name="libraryTable">
+-  <library name="Maven: org.hibernate:hibernate-entitymanager:5.4.4.Final">
++  <library name="Maven: org.apiguardian:apiguardian-api:1.0.0">
+     <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-entitymanager/5.4.4.Final/hibernate-entitymanager-5.4.4.Final.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar!/" />
+     </CLASSES>
+     <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-entitymanager/5.4.4.Final/hibernate-entitymanager-5.4.4.Final-javadoc.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0-javadoc.jar!/" />
+     </JAVADOC>
+     <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-entitymanager/5.4.4.Final/hibernate-entitymanager-5.4.4.Final-sources.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0-sources.jar!/" />
+     </SOURCES>
+   </library>
+ </component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_jboss_jandex_2_0_5_Final.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"libraryTable\">\r\n  <library name=\"Maven: org.jboss:jandex:2.0.5.Final\">\r\n    <CLASSES>\r\n      <root url=\"jar://$MAVEN_REPOSITORY$/org/jboss/jandex/2.0.5.Final/jandex-2.0.5.Final.jar!/\" />\r\n    </CLASSES>\r\n    <JAVADOC>\r\n      <root url=\"jar://$MAVEN_REPOSITORY$/org/jboss/jandex/2.0.5.Final/jandex-2.0.5.Final-javadoc.jar!/\" />\r\n    </JAVADOC>\r\n    <SOURCES>\r\n      <root url=\"jar://$MAVEN_REPOSITORY$/org/jboss/jandex/2.0.5.Final/jandex-2.0.5.Final-sources.jar!/\" />\r\n    </SOURCES>\r\n  </library>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_jboss_jandex_2_0_5_Final.xml b/.idea/libraries/Maven__org_jboss_jandex_2_0_5_Final.xml
+--- a/.idea/libraries/Maven__org_jboss_jandex_2_0_5_Final.xml	(revision c1fcdb24d0c95df8c1cde83cec7d82a294e74421)
++++ b/.idea/libraries/Maven__org_jboss_jandex_2_0_5_Final.xml	(date 1620070592140)
+@@ -1,13 +1,13 @@
+ <component name="libraryTable">
+-  <library name="Maven: org.jboss:jandex:2.0.5.Final">
++  <library name="Maven: org.javassist:javassist:3.24.0-GA">
+     <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/jandex/2.0.5.Final/jandex-2.0.5.Final.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/org/javassist/javassist/3.24.0-GA/javassist-3.24.0-GA.jar!/" />
+     </CLASSES>
+     <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/jandex/2.0.5.Final/jandex-2.0.5.Final-javadoc.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/org/javassist/javassist/3.24.0-GA/javassist-3.24.0-GA-javadoc.jar!/" />
+     </JAVADOC>
+     <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/jandex/2.0.5.Final/jandex-2.0.5.Final-sources.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/org/javassist/javassist/3.24.0-GA/javassist-3.24.0-GA-sources.jar!/" />
+     </SOURCES>
+   </library>
+ </component>
+\ No newline at end of file
+diff --git a/.idea/libraries/Maven__org_javassist_javassist_3_24_0_GA.xml b/.idea/libraries/Maven__org_javassist_javassist_3_24_0_GA2.xml
+rename from .idea/libraries/Maven__org_javassist_javassist_3_24_0_GA.xml
+rename to .idea/libraries/Maven__org_javassist_javassist_3_24_0_GA2.xml
+diff --git a/.idea/libraries/Maven__org_dom4j_dom4j_2_1_1.xml b/.idea/libraries/Maven__org_dom4j_dom4j_2_1_12.xml
+rename from .idea/libraries/Maven__org_dom4j_dom4j_2_1_1.xml
+rename to .idea/libraries/Maven__org_dom4j_dom4j_2_1_12.xml
+diff --git a/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_0_0.xml b/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_0_02.xml
+rename from .idea/libraries/Maven__org_apiguardian_apiguardian_api_1_0_0.xml
+rename to .idea/libraries/Maven__org_apiguardian_apiguardian_api_1_0_02.xml
+diff --git a/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_7.xml b/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_72.xml
+rename from .idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_7.xml
+rename to .idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_72.xml
+diff --git a/.idea/libraries/Maven__antlr_antlr_2_7_7.xml b/.idea/libraries/Maven__antlr_antlr_2_7_72.xml
+rename from .idea/libraries/Maven__antlr_antlr_2_7_7.xml
+rename to .idea/libraries/Maven__antlr_antlr_2_7_72.xml
+diff --git a/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_9_11.xml b/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_9_112.xml
+rename from .idea/libraries/Maven__net_bytebuddy_byte_buddy_1_9_11.xml
+rename to .idea/libraries/Maven__net_bytebuddy_byte_buddy_1_9_112.xml
+diff --git a/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml b/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_02.xml
+rename from .idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml
+rename to .idea/libraries/Maven__javax_activation_javax_activation_api_1_2_02.xml
