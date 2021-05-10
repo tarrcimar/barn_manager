@@ -106,11 +106,12 @@ public class BarnWindowController {
             {
                 ListController lc = new ListController();
                 lc.setBarnId(barn.getId());
+                lc.setBarnName(barn.getName());
 
             }
         }
 
-        new FadeController().fadeOut("/example/view/list.fxml", rootPane);
+        new FadeController().fadeOut("/example/view/animalList.fxml", rootPane);
 
     }
 
@@ -127,6 +128,10 @@ public class BarnWindowController {
         bwc.setUserId(userId);
         bwc.setUsername(username);
 
+        ForageWindowController fwc = new ForageWindowController();
+        fwc.setUserId(userId);
+        fwc.setUsername(username);
+
 
         usernameLabel.setText(getUsername());
 
@@ -140,13 +145,6 @@ public class BarnWindowController {
         }
 
         barnListView.setItems(lista);
-
-
-
-
-
-
-
 
 
         backToMainButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/login.fxml", rootPane));

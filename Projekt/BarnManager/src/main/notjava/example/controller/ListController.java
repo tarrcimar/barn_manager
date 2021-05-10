@@ -34,15 +34,17 @@ public class ListController {
     }
 
 
-    public static String username;
+    public static String barnName;
 
-    public String getUsername() {
-        return username;
+    public String getBarnName() {
+        return barnName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setBarnName(String barnName) {
+        this.barnName = barnName;
     }
+
+
 
     @FXML
     private AnchorPane rootPane;
@@ -62,16 +64,18 @@ public class ListController {
 
     private ObservableList<Animal> animals;
 
+
     @FXML
     void initialize(){
-        usernameLabel.setText(getUsername());
-
+        usernameLabel.setText(getBarnName());
+        AddListController alc = new AddListController();
+        alc.setBarnId(barnId);
         JpaAnimalDAO all = new JpaAnimalDAO();
         animals = FXCollections.observableArrayList(all.getAnimalsByBarnId(barnId));
 
         barnList.setItems(animals);
         barnList.setCellFactory(ListCellController -> new ListCellController());
-        backToMain.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/mainWindow.fxml", rootPane));
+        backToMain.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/barnWindow.fxml", rootPane));
         addAnimalButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/addToList.fxml", rootPane));
     }
 

@@ -20,11 +20,19 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <JFXListView fx:id="barnList" layoutY="130.0" prefHeight="273.0" prefWidth="701.0" />
-            <Label layoutX="516.0" layoutY="66.0" text="Logged in as:" />
+            <JFXListView fx:id="barnList" layoutY="145.0" prefHeight="258.0" prefWidth="701.0" />
+            <Label layoutX="516.0" layoutY="66.0" text="Selected barn:" />
             <Label fx:id="usernameLabel" layoutX="594.0" layoutY="66.0" style="-fx-font-weight: BOLD;" text="blank" />
             <JFXButton fx:id="addAnimalButton" layoutX="14.0" layoutY="86.0" style="-fx-background-color: #4ebaaa;" text="Add New Animal" />
             <JFXButton fx:id="backToMain" layoutX="594.0" layoutY="86.0" style="-fx-background-color: #4ebaaa;" text="Back To Main" />
+            <Label layoutX="35.0" layoutY="128.0" text="ID" />
+            <Label layoutX="101.0" layoutY="128.0" text="Gender" />
+            <Label layoutX="187.0" layoutY="128.0" text="Type" />
+            <Label layoutX="282.0" layoutY="128.0" text="Date of Add" />
+            <Label layoutX="375.0" layoutY="128.0" text="Activity(km)" />
+            <Label layoutX="490.0" layoutY="128.0" text="Comment" />
+            <Label layoutX="600.0" layoutY="128.0" text="Edit" />
+            <Label layoutX="646.0" layoutY="128.0" text="Delete" />
          </children>
       </AnchorPane>
    </children>

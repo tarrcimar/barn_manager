@@ -51,32 +51,19 @@ public class ListCellController extends JFXListCell<Animal> {
     private FXMLLoader fxmlLoader;
 
     private void editButtonClicked(Animal myAnimal){
-        String animalname = namefield.getText();
-        String gender = genderfield.getText();
-        String type = typefield.getText();
         int activity = Integer.parseInt(activityfield.getText());
         String comment = commentField.getText();
-
-        GenderType gendertype = GenderType.FEMALE;
-        if (gender == "MALE")
-        {
-            gendertype = GenderType.MALE;
-        }
-        else if(gender == "FEMALE")
-        {
-          gendertype = GenderType.FEMALE;
-        }
-        myAnimal.setGender(gendertype);
-
-        myAnimal.setType(type);
         myAnimal.setActivity(activity);
         myAnimal.setComment(comment);
         JpaAnimalDAO janos = new JpaAnimalDAO();
         janos.updateAnimal(myAnimal);
+        //getListView().getItems().remove(getItem());
+        //getListView().getItems().add(myAnimal);
     }
     private void removeButtonClicked(Animal myAnimal){
         JpaAnimalDAO jozsef = new JpaAnimalDAO();
-        jozsef.deleteAnimal(myAnimal);
+        jozsef.deleteAnimalByIds(myAnimal.getBarn().getId(), myAnimal.getId());
+        getListView().getItems().remove(getItem());
     }
 
     @FXML

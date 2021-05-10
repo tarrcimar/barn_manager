@@ -17,7 +17,7 @@ public class JpaAnimalDAO implements AnimalDAO{
     @Override
     public void saveAnimal(Animal a) {
         entityManager.getTransaction().begin();
-        entityManager.persist(a);
+        entityManager.merge(a);
         entityManager.getTransaction().commit();
     }
 
@@ -25,6 +25,11 @@ public class JpaAnimalDAO implements AnimalDAO{
     public void deleteAnimal(Animal a) {
         entityManager.getTransaction().begin();
         entityManager.remove(a);
+        entityManager.getTransaction().commit();
+    }
+    public void deleteAnimalByIds(long barnId,long animalId){
+        entityManager.getTransaction().begin();
+        entityManager.createQuery("DELETE FROM Animal WHERE id = "+animalId+" AND barn_id = "+barnId+"").executeUpdate();
         entityManager.getTransaction().commit();
     }
     public Animal editAnimalById(long id){

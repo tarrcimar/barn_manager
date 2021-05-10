@@ -18,6 +18,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class AddListController {
+        public static long barnId;
+
+        public long getBarnId() {
+                return barnId;
+        }
+
+        public void setBarnId(long barnId) {
+                this.barnId = barnId;
+        }
 
         @FXML
         private ResourceBundle resources;
@@ -85,7 +94,7 @@ public class AddListController {
                         String comment = commentField.getText();
                         newAnimal.setComment(comment);
                         JpaBarnDAO barnDAO = new JpaBarnDAO();
-                        newAnimal.setBarn(barnDAO.getBarnById(1));
+                        newAnimal.setBarn(barnDAO.getBarnByID(barnId));
                         JpaAnimalDAO animalDAO = new JpaAnimalDAO();
                         animalDAO.saveAnimal(newAnimal);
                         new FadeController().fadeOut("/example/view/animalList.fxml", rootPane);
