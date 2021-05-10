@@ -74,8 +74,8 @@ public class ChartController {
         JpaForageDAO all = new JpaForageDAO();
 
         // lekérjük a userhez tartozó istállókat
-        List<Barn> barnListByUserId = dao.getBarnsByUserId(MainWindowController.userId);
-        List<Forage> forageList = all.getForagesByUserId(MainWindowController.userId);
+        List<Barn> barnListByUserId = dao.getBarnsByUserId(BarnWindowController.userId);
+        List<Forage> forageList = all.getForagesByUserId(BarnWindowController.userId);
         Map<String, Long> forageCount = new HashMap<>();
 
         List<Animal> animalList;

@@ -71,8 +71,9 @@ public class ForageWindowController {
         addForageButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/addForageWindow.fxml", rootPane));
 
         JpaForageDAO all = new JpaForageDAO();
-        forages = FXCollections.observableArrayList(all.getForagesByUserId(userId));
+        forages = FXCollections.observableArrayList(all.getForagesByUserId(1));
 
+        System.out.println(userId + "a forageban");
         /*Forage myForage = new Forage();
         myForage.setName(ForageType.HAY);
         myForage.setAmount((long)200);
