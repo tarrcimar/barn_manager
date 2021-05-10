@@ -11,9 +11,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 public class ListController {
     public static long userId;
 
@@ -25,33 +22,61 @@ public class ListController {
         this.userId = userId;
     }
 
-    public static String username;
 
-    public String getUsername() {
-        return username;
+    public static long barnId;
+
+    public long getBarnId() {
+        return barnId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setBarnId(long barnId) {
+        this.barnId = barnId;
     }
 
-    @FXML
-    private ResourceBundle resources;
 
-    @FXML
-    private URL location;
+    public static String barnName;
+
+    public String getBarnName() {
+        return barnName;
+    }
+
+    public void setBarnName(String barnName) {
+        this.barnName = barnName;
+    }
+
+
 
     @FXML
     private AnchorPane rootPane;
 
     @FXML
-    private JFXButton addAnimalButton;
-
-    @FXML
     private JFXButton backToMain;
 
     @FXML
+    private Label usernameLabel;
+
+    @FXML
+    private JFXButton addAnimalButton;
+
+
+    @FXML
+    private JFXListView<Animal> barnList;
+
+    private ObservableList<Animal> animals;
+
+
+    @FXML
     void initialize(){
+        usernameLabel.setText(getBarnName());
+        AddListController alc = new AddListController();
+        alc.setBarnId(barnId);
+        JpaAnimalDAO all = new JpaAnimalDAO();
+        animals = FXCollections.observableArrayList(all.getAnimalsByBarnId(barnId));
+
+        barnList.setItems(animals);
+        barnList.setCellFactory(ListCellController -> new ListCellController());
+        backToMain.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/barnWindow.fxml", rootPane));
+        addAnimalButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/addToList.fxml", rootPane));
     }
 
 }

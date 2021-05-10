@@ -62,7 +62,6 @@ public class MainWindowController {
 
         ListController ls = new ListController();
         ls.setUserId(userId);
-        ls.setUsername(username);
 
         logOutLink.setOnAction(actionEvent -> changeToLogin());
         usernameLabel.setText(getUsername());
