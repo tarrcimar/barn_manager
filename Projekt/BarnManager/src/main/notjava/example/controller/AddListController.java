@@ -50,6 +50,6 @@ public class AddListController {
         @FXML
         void initialize() {
 
-                 backToList.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/list.fxml", rootPane));
+                 backToList.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/animalList.fxml", rootPane));
         }
 }

@@ -11,6 +11,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class ListController {
     public static long userId;
 
@@ -33,34 +36,22 @@ public class ListController {
     }
 
     @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
     private AnchorPane rootPane;
+
+    @FXML
+    private JFXButton addAnimalButton;
 
     @FXML
     private JFXButton backToMain;
 
     @FXML
-    private Label usernameLabel;
-
-    @FXML
-    private JFXButton addAnimalButton;
-
-
-    @FXML
-    private JFXListView<Animal> barnList;
-
-    private ObservableList<Animal> animals;
-
-    @FXML
     void initialize(){
-        usernameLabel.setText(getUsername());
-
-        JpaAnimalDAO all = new JpaAnimalDAO();
-        animals = FXCollections.observableArrayList(all.getAnimalsByBarnId(1));
-
-        barnList.setItems(animals);
-        barnList.setCellFactory(ListCellController -> new ListCellController());
-        backToMain.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/mainWindow.fxml", rootPane));
-        addAnimalButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/addToList.fxml", rootPane));
     }
 
 }
