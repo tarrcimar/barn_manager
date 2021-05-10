@@ -78,36 +78,44 @@ public class BarnWindowController {
 
     @FXML
     void addNewBarn() {
+        barns = FXCollections.observableArrayList();
+        barns = FXCollections.observableArrayList(all.getBarnByUserId(userId));
 
-        Barn barn = new Barn();
-        barn.setName(barnTextName.getText());
+        ObservableList<String> lista = FXCollections.observableArrayList();
 
-        barn.setUser(mall.getUserById(userId));
-        all.saveBarn(barn);
+        for (Barn barn : barns ) {
+            lista.add(barn.getName());
+        }
 
-        barnListView.getItems().add(barn.getName());
 
-    }
+        if(lista.contains(barnTextName.getText())){
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Barn Addition Error");
+            a.setHeaderText("Error");
+            a.setContentText("Barn Already exists");
+            a.show();
+        }
+        else {
+            Barn barn = new Barn();
+            barn.setName(barnTextName.getText());
 
-    public void removeBarnFromDatabase(){
+            barn.setUser(mall.getUserById(userId));
+            all.saveBarn(barn);
 
+            //barnListView.getItems().add(barn.getName());
+        }
 
     }
 
     public void selectedBarn(){
 
-      barns = FXCollections.observableArrayList();
-      barns = FXCollections.observableArrayList(all.getBarnByUserId(userId));
-
-
-      String selected = barnListView.getSelectionModel().getSelectedItem();
+        String selected = barnListView.getSelectionModel().getSelectedItem();
         for (Barn barn: barns) {
             if(barn.getName() == selected)
             {
                 ListController lc = new ListController();
                 lc.setBarnId(barn.getId());
                 lc.setBarnName(barn.getName());
-
             }
         }
 
@@ -134,9 +142,6 @@ public class BarnWindowController {
 
 
         usernameLabel.setText(getUsername());
-
-
-
 
         ObservableList<String> lista = FXCollections.observableArrayList();
 
