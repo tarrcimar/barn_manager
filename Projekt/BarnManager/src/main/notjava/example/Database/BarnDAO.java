@@ -9,4 +9,5 @@ public interface BarnDAO extends AutoCloseable{
     public void deleteBarn(Barn b);
     public void updateBarn(Barn b);
     public List<Barn> getBarns();
+    public Barn getBarnByID(long id);
 }

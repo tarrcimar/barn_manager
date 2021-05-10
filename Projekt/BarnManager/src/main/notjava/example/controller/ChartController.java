@@ -155,7 +155,7 @@ public class ChartController {
         foragesChart.setStartAngle(90);
 
         // visszalépés a mainWindow-ba
-        backButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/mainWindow.fxml", rootPane));
+        backButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/barnWindow.fxml", rootPane));
 
     }
 
