@@ -41,16 +41,27 @@ public class JpaBarnDAO implements BarnDAO{
     }
 
     @Override
-    public Barn getBarnById(long id) {
+    public Barn getBarnByID(long id) {
         Barn returnBarn = new Barn();
         List<Barn> barns = getBarns();
-        for (Barn barn : barns) {
-            if(barn.getId() == id){
+        for(Barn barn : barns){
+            if(barn.getId() == id)
                 returnBarn = barn;
-            }
         }
         return returnBarn;
     }
+
+    public List<Barn> getBarnByUserId(long userId) {
+        List<Barn> all = new ArrayList<>();
+        List<Barn> barns = getBarns();
+        for (Barn barn : barns) {
+            if(barn.getUser().getId() == userId){
+                all.add(barn);
+            }
+        }
+        return all;
+    }
+
 
     @Override
     public void close() throws Exception {

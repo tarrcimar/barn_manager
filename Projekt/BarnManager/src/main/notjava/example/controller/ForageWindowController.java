@@ -67,7 +67,7 @@ public class ForageWindowController {
         afw.setUsername(username);
         forages = FXCollections.observableArrayList();
         usernameLabel.setText(getUsername());
-        backToMain.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/mainWindow.fxml", rootPane));
+        backToMain.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/barnWindow.fxml", rootPane));
         addForageButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/addForageWindow.fxml", rootPane));
 
         JpaForageDAO all = new JpaForageDAO();
