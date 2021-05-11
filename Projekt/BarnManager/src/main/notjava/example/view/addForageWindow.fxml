@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.controller.AddForageWindowController">
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.controller.AddForageWindowController">
    <children>
       <AnchorPane prefHeight="61.0" prefWidth="708.0" style="-fx-background-color: #00897b;">
          <children>
@@ -28,7 +28,7 @@
       <Hyperlink fx:id="backToForage" layoutX="13.0" layoutY="363.0" text="Back to Forages" />
       <Label layoutX="14.0" layoutY="67.0" text="Logged in as:" />
       <Label fx:id="usernameLabel" layoutX="93.0" layoutY="67.0" style="-fx-font-weight: BOLD;" text="blank" />
-      <GridPane layoutX="14.0" layoutY="97.0" prefHeight="233.0" prefWidth="407.0">
+      <GridPane layoutX="105.0" layoutY="108.0" prefHeight="233.0" prefWidth="407.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="194.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="178.0" />
@@ -48,7 +48,7 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <ChoiceBox fx:id="forageNameChoice" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" />
+            <ChoiceBox fx:id="forageNameChoice" prefHeight="25.0" prefWidth="186.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" />
             <Label text="Amount:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                <font>
                   <Font size="20.0" />
@@ -66,7 +66,7 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <ChoiceBox fx:id="unitTypeChoice" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="unitTypeChoice" prefHeight="25.0" prefWidth="187.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
             <Button fx:id="addForageButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" style="-fx-background-color: #4ebaaa;" text="Add forage" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
          </children>
       </GridPane>

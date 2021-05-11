@@ -11,10 +11,7 @@ import example.model.Barn;
 import example.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
@@ -38,7 +35,7 @@ public class LoginController {
     private JFXPasswordField userPassword;
 
     @FXML
-    private JFXButton loginRegister;
+    private Hyperlink loginRegister;
 
     @FXML
     private JFXButton loginButton;
@@ -47,15 +44,12 @@ public class LoginController {
 
     @FXML
     void initialize() {
-        FXMLLoader loader = new FXMLLoader();
-        MainWindowController window = new MainWindowController();
         BarnWindowController bwindow = new BarnWindowController();
 
         FadeController fadeController = new FadeController();
 
         loginButton.setOnAction(actionEvent -> { // when login button is clicked, get the values from the textboxes
             UserDAO uDaO = new JpaUserDAO();
-            BarnDAO bDao = new JpaBarnDAO();
             String username = userName.getText().trim();
             String password = userPassword.getText().trim();
 
@@ -64,27 +58,15 @@ public class LoginController {
             List<User> users = uDaO.getUsers(); //if the username and password matches an existing user, switch to main window
             for (User user : users){
                 if(user.getUsername().equals(username) && user.getPassword().equals(password)){
-                    System.out.println("Found user!");
                     userId = user.getId();
                     found = true;
                 }
             }
 
-            //példa az istállók lekérésére
-
-            List<Barn> barns = bDao.getBarns();
-            for(Barn b : barns){
-                System.out.println(b.getName());
-            }
-
-
 
             if(!found) feedbackLabel.setVisible(true); //if user does not exist, provide an error message
             else{
-                System.out.println("In login: " + userId);
-                window.setUserId(userId);
                 bwindow.setUserId(userId);
-                window.setUsername(username);
                 bwindow.setUsername(username);
                 fadeController.fadeOut("/example/view/barnWindow.fxml", rootPane);
             }

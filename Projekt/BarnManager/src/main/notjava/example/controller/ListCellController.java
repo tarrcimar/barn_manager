@@ -50,6 +50,7 @@ public class ListCellController extends JFXListCell<Animal> {
 
     private FXMLLoader fxmlLoader;
 
+
     private void editButtonClicked(Animal myAnimal){
         int activity = Integer.parseInt(activityfield.getText());
         String comment = commentField.getText();

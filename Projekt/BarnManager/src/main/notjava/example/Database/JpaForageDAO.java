@@ -39,6 +39,8 @@ public class JpaForageDAO implements ForageDAO{
         List<Forage> forages = query.getResultList();
         return forages;
     }
+
+
     public void deleteForageByIds(long userId,long forageId){
         entityManager.getTransaction().begin();
         entityManager.createQuery("DELETE FROM Forage WHERE id = "+forageId+" AND owner_id = "+userId+"").executeUpdate();

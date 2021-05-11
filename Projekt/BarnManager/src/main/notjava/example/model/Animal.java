@@ -57,17 +57,6 @@ public class Animal {
     }
 
     @Basic
-    private String dateOfBirth;
-
-    public String getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    @Basic
     private Integer activity;
 
     public Integer getActivity() {
