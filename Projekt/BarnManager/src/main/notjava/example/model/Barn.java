@@ -51,15 +51,4 @@ public class Barn {
     public void setAnimals(Set<Animal> animals) {
         this.animals = animals;
     }
-
-    @Basic
-    private Integer animalCount;
-
-    public Integer getAnimalCount() {
-        return animalCount;
-    }
-
-    public void setAnimalCount(Integer animalCount) {
-        this.animalCount = animalCount;
-    }
 }

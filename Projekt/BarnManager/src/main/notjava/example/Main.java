@@ -43,13 +43,13 @@ public class Main extends Application {
         }
         launch(args);
 
-
+        /*
         final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("br.com.fredericci.pu");
         final EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         LocalDate now = LocalDate.now();
-
-
+        */
+        /*
         User pista = new User("pista", "password");
 
         Barn first = new Barn();
@@ -112,7 +112,7 @@ public class Main extends Application {
         entityManager.getTransaction().begin();
         entityManager.persist(pista);
         entityManager.getTransaction().commit();
-
+        */
         //stopDatabase();
     }
 

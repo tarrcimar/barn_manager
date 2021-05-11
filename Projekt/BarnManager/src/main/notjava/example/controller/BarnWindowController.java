@@ -9,6 +9,8 @@ import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.util.ArrayList;
@@ -55,10 +57,13 @@ public class BarnWindowController {
     private Button submitBarn;
 
     @FXML
-    private JFXButton forageButton;
+    private Button deleteBarn;
 
     @FXML
-    private JFXButton insightsButton;
+    private ImageView forageButton;
+
+    @FXML
+    private ImageView insightsButton;
 
     private ObservableList<Barn> barns;
 
@@ -70,9 +75,22 @@ public class BarnWindowController {
 
     @FXML
     void deleteBarn() {
+        barns = FXCollections.observableArrayList();
+        barns = FXCollections.observableArrayList(all.getBarnByUserId(userId));
 
-        ObservableList<String> selecteditems = barnListView.getSelectionModel().getSelectedItems();
-        barnListView.getItems().removeAll(selecteditems);
+        String chosen = barnListView.getSelectionModel().getSelectedItem();
+        System.out.println(chosen);
+
+        Barn todelete = new Barn();
+        for (Barn b:barns) {
+            if(b.getName().equals(chosen)){
+                todelete = b;
+                barnListView.getItems().remove(chosen);
+            }
+        }
+
+        all.deleteBarn(todelete);
+        reload();
 
     }
 
@@ -102,8 +120,10 @@ public class BarnWindowController {
             barn.setUser(mall.getUserById(userId));
             all.saveBarn(barn);
 
-            //barnListView.getItems().add(barn.getName());
+            barnListView.getItems().add(barn.getName());
         }
+
+        reload();
 
     }
 
@@ -123,7 +143,18 @@ public class BarnWindowController {
 
     }
 
+    public void reload(){
+        barns = FXCollections.observableArrayList();
+        barns = FXCollections.observableArrayList(all.getBarnByUserId(userId));
 
+        ObservableList<String> lista = FXCollections.observableArrayList();
+
+        for (Barn barn : barns ) {
+            lista.add(barn.getName());
+        }
+
+        barnListView.setItems(lista);
+    }
 
     @FXML
     void initialize() throws InterruptedException {
@@ -151,10 +182,10 @@ public class BarnWindowController {
 
         barnListView.setItems(lista);
 
-
         backToMainButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/login.fxml", rootPane));
         submitBarn.setOnAction(actionEvent -> selectedBarn());
-        forageButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/forageWindow.fxml", rootPane));
-        insightsButton.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/chart.fxml", rootPane));
+        forageButton.setOnMouseClicked(actionEvent -> new FadeController().fadeOut("/example/view/forageWindow.fxml", rootPane));
+        insightsButton.setOnMouseClicked(actionEvent -> new FadeController().fadeOut("/example/view/chart.fxml", rootPane));
+        deleteBarn.setOnAction(actionEvent -> deleteBarn());
     }
 }

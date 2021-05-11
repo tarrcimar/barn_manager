@@ -2,12 +2,14 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.controller.ListController">
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.controller.ListController">
    <children>
       <AnchorPane layoutX="3.0" prefHeight="405.0" prefWidth="701.0" style="-fx-background-color: #eaeaea;">
          <children>
@@ -21,10 +23,9 @@
                </children>
             </AnchorPane>
             <JFXListView fx:id="barnList" layoutY="145.0" prefHeight="258.0" prefWidth="701.0" />
-            <Label layoutX="516.0" layoutY="66.0" text="Selected barn:" />
-            <Label fx:id="usernameLabel" layoutX="594.0" layoutY="66.0" style="-fx-font-weight: BOLD;" text="blank" />
-            <JFXButton fx:id="addAnimalButton" layoutX="14.0" layoutY="86.0" style="-fx-background-color: #4ebaaa;" text="Add New Animal" />
-            <JFXButton fx:id="backToMain" layoutX="594.0" layoutY="86.0" style="-fx-background-color: #4ebaaa;" text="Back To Main" />
+            <Label layoutX="8.0" layoutY="66.0" text="Selected barn:" />
+            <Label fx:id="usernameLabel" layoutX="86.0" layoutY="66.0" style="-fx-font-weight: BOLD;" text="blank" />
+            <JFXButton fx:id="addAnimalButton" layoutX="7.0" layoutY="88.0" style="-fx-background-color: #4ebaaa;" text="Add New Animal" />
             <Label layoutX="35.0" layoutY="128.0" text="ID" />
             <Label layoutX="101.0" layoutY="128.0" text="Gender" />
             <Label layoutX="187.0" layoutY="128.0" text="Type" />
@@ -33,6 +34,10 @@
             <Label layoutX="490.0" layoutY="128.0" text="Comment" />
             <Label layoutX="600.0" layoutY="128.0" text="Edit" />
             <Label layoutX="646.0" layoutY="128.0" text="Delete" />
+            <Hyperlink fx:id="backToMain" layoutX="646.0" layoutY="69.0" text="Back">
+               <font>
+                  <Font size="14.0" />
+               </font></Hyperlink>
          </children>
       </AnchorPane>
    </children>

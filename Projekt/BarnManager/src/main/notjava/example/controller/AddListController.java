@@ -5,16 +5,16 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import example.Database.JpaAnimalDAO;
 import example.Database.JpaBarnDAO;
 import example.model.Animal;
 import example.model.Barn;
 import example.model.GenderType;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 public class AddListController {
@@ -38,13 +38,7 @@ public class AddListController {
         private AnchorPane rootPane;
 
         @FXML
-        private JFXButton backToList;
-
-        @FXML
-        private Label usernameLabel;
-
-        @FXML
-        private TextField nameField;
+        private Hyperlink backToList;
 
         @FXML
         private ChoiceBox<String> genderChoice;
@@ -53,41 +47,54 @@ public class AddListController {
         private ChoiceBox<String> typeChoice;
 
         @FXML
-        private TextField activityField;
+        private JFXTextField activityField;
 
         @FXML
-        private TextField commentField;
+        private JFXTextField commentField;
 
         @FXML
         private Button addToListButton;
 
+        @FXML
+        private JFXTextField countField;
+
+
+
         private void addAnimalButtonClicked() {
-                Animal newAnimal = new Animal();
-                LocalDate now = LocalDate.now();
-                String selectedGender = genderChoice.getSelectionModel().getSelectedItem();
-                switch (selectedGender) {
-                        case "Male":
-                                newAnimal.setGender(GenderType.MALE);
-                                break;
-                        case "Female":
-                                newAnimal.setGender(GenderType.FEMALE);
-                                break;
-                        }
-                String selectType = typeChoice.getSelectionModel().getSelectedItem();
-                switch (selectType) {
-                        case "Horse":
-                                newAnimal.setType("Horse");
-                                break;
-                        case "Cow":
-                                newAnimal.setType("Cow");
-                                break;
-                        case "Goat":
-                                newAnimal.setType("Goat");
-                                break;
-                        case "Pig":
-                                newAnimal.setType("Pig");
-                                break;
+                int counter;
+                if(countField.getText().trim().isEmpty()){
+                        counter = 1;
                 }
+                else{
+                        counter = Integer.parseInt(countField.getText());
+                }
+                for (int i =0; i < counter; i++) {
+                        Animal newAnimal = new Animal();
+                        LocalDate now = LocalDate.now();
+                        String selectedGender = genderChoice.getSelectionModel().getSelectedItem();
+                        switch (selectedGender) {
+                                case "Male":
+                                        newAnimal.setGender(GenderType.MALE);
+                                        break;
+                                case "Female":
+                                        newAnimal.setGender(GenderType.FEMALE);
+                                        break;
+                        }
+                        String selectType = typeChoice.getSelectionModel().getSelectedItem();
+                        switch (selectType) {
+                                case "Horse":
+                                        newAnimal.setType("Horse");
+                                        break;
+                                case "Cow":
+                                        newAnimal.setType("Cow");
+                                        break;
+                                case "Goat":
+                                        newAnimal.setType("Goat");
+                                        break;
+                                case "Pig":
+                                        newAnimal.setType("Pig");
+                                        break;
+                        }
                         newAnimal.setAddedOn(now);
                         String activity = activityField.getText();
                         newAnimal.setActivity(Integer.parseInt(activity));
@@ -97,22 +104,35 @@ public class AddListController {
                         newAnimal.setBarn(barnDAO.getBarnByID(barnId));
                         JpaAnimalDAO animalDAO = new JpaAnimalDAO();
                         animalDAO.saveAnimal(newAnimal);
-                        new FadeController().fadeOut("/example/view/animalList.fxml", rootPane);
                 }
-                @FXML
-                void initialize()
-                {
-                        genderChoice.getItems().add("Male");
-                        genderChoice.getItems().add("Female");
+                new FadeController().fadeOut("/example/view/animalList.fxml", rootPane);
 
-                        typeChoice.getItems().add("Horse");
-                        typeChoice.getItems().add("Cow");
-                        typeChoice.getItems().add("Goat");
-                        typeChoice.getItems().add("Pig");
-
-                        addToListButton.setOnAction(actionEvent -> addAnimalButtonClicked());
-                        backToList.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/animalList.fxml", rootPane));
-
-                }
         }
+        @FXML
+        void initialize()
+        {
+
+                countField.textProperty().addListener(new ChangeListener<String>() {
+                        @Override
+                        public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                            String newValue) {
+                                if (!newValue.matches("\\d*")) {
+                                        countField.setText(newValue.replaceAll("[^\\d]", ""));
+                                }
+                        }
+                });
+
+                genderChoice.getItems().add("Male");
+                genderChoice.getItems().add("Female");
+
+                typeChoice.getItems().add("Horse");
+                typeChoice.getItems().add("Cow");
+                typeChoice.getItems().add("Goat");
+                typeChoice.getItems().add("Pig");
+
+                addToListButton.setOnAction(actionEvent -> addAnimalButtonClicked());
+                backToList.setOnAction(actionEvent -> new FadeController().fadeOut("/example/view/animalList.fxml", rootPane));
+
+        }
+}
 

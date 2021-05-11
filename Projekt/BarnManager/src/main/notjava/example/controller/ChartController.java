@@ -16,6 +16,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -45,7 +46,7 @@ public class ChartController {
     private Label goatCount;
 
     @FXML
-    private JFXButton backButton;
+    private Hyperlink backButton;
 
     @FXML
     private Label hayCount;
@@ -74,8 +75,8 @@ public class ChartController {
         JpaForageDAO all = new JpaForageDAO();
 
         // lekérjük a userhez tartozó istállókat
-        List<Barn> barnListByUserId = dao.getBarnsByUserId(MainWindowController.userId);
-        List<Forage> forageList = all.getForagesByUserId(MainWindowController.userId);
+        List<Barn> barnListByUserId = dao.getBarnsByUserId(BarnWindowController.userId);
+        List<Forage> forageList = all.getForagesByUserId(BarnWindowController.userId);
         Map<String, Long> forageCount = new HashMap<>();
 
         List<Animal> animalList;
@@ -115,6 +116,7 @@ public class ChartController {
         // Termény vizualizáció
 
         // BOX, TON - ról konvertálás KG-be
+
         for (Forage forage:forageList) {
             MeasurementUnit forageType = forage.getUnit();
             long amount = 0;
@@ -130,15 +132,15 @@ public class ChartController {
                     amount = forage.getAmount() * 1000;
                     break;
             }
-            forageCount.put(String.valueOf(forage.getName()), amount);
+            forageCount.put(String.valueOf(forage.getName()), forage.getAmount());
         }
 
-        hayCount.setText(forageCount.getOrDefault("HAY", (long) 0) + "KG");
-        wormCount.setText(forageCount.getOrDefault("WORM", (long) 0) + "KG");
-        meatCount.setText(forageCount.getOrDefault("MEAT", (long) 0) + "KG");
-        rootCount.setText(forageCount.getOrDefault("ROOT", (long) 0) + "KG");
-        fungusCount.setText(forageCount.getOrDefault("FUNGUS", (long) 0) + "KG");
-        seedCount.setText(forageCount.getOrDefault("SEED", (long) 0) + "KG");
+        hayCount.setText(forageCount.getOrDefault("HAY", (long) 0) + " Units");
+        wormCount.setText(forageCount.getOrDefault("WORM", (long) 0) + " Units");
+        meatCount.setText(forageCount.getOrDefault("MEAT", (long) 0) + " Units");
+        rootCount.setText(forageCount.getOrDefault("ROOT", (long) 0) + " Units");
+        fungusCount.setText(forageCount.getOrDefault("FUNGUS", (long) 0) + " Units");
+        seedCount.setText(forageCount.getOrDefault("SEED", (long) 0) + " Units");
 
         ObservableList<PieChart.Data> pieChartDataForage = FXCollections.observableArrayList(
                 new PieChart.Data("Hay", forageCount.getOrDefault("HAY", (long)0)),

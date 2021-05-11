@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
@@ -34,10 +33,18 @@
       <Label layoutX="4.0" layoutY="64.0" text="Welcome back " />
       <Label fx:id="usernameLabel" layoutX="85.0" layoutY="64.0" text="blank" />
       <Button layoutX="434.0" layoutY="86.0" mnemonicParsing="false" onAction="#addNewBarn" style="-fx-background-color: #4ebaaa;" text="Create" />
-      <Button fx:id="submitBarn" layoutX="254.0" layoutY="326.0" mnemonicParsing="false" style="-fx-background-color: #4ebaaa;" text="Submit" />
-      <Button layoutX="383.0" layoutY="326.0" mnemonicParsing="false" onAction="#deleteBarn" style="-fx-background-color: #FF0000;" text="Delete" />
-      <JFXButton fx:id="forageButton" layoutX="16.0" layoutY="118.0" style="-fx-background-color: #4ebaaa;" text="Forages" />
-      <JFXButton fx:id="insightsButton" layoutX="611.0" layoutY="118.0" style="-fx-background-color: #4ebaaa;" text="Insights" />
+      <Button fx:id="submitBarn" layoutX="254.0" layoutY="326.0" mnemonicParsing="false" style="-fx-background-color: #4ebaaa;" text="Open" />
+      <Button fx:id="deleteBarn" layoutX="383.0" layoutY="326.0" mnemonicParsing="false" style="-fx-background-color: #FF0000;" text="Delete" textFill="WHITE" />
+      <ImageView fx:id="insightsButton" fitHeight="94.0" fitWidth="81.0" layoutX="582.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/chart_withoutbackground.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="forageButton" fitHeight="150.0" fitWidth="81.0" layoutX="45.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/silo_withoutbackground (1).png" />
+         </image>
+      </ImageView>
 
    </children>
 </AnchorPane>
