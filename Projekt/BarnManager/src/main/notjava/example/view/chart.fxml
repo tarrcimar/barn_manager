@@ -62,7 +62,7 @@
                         <Pane layoutX="26.0" layoutY="147.0" prefHeight="7.0" prefWidth="106.0" style="-fx-background-color: #e59a20;" />
                         <Pane layoutX="27.0" layoutY="110.0" prefHeight="7.0" prefWidth="106.0" style="-fx-background-color: #e7693b;" />
                         <Pane layoutX="26.0" layoutY="189.0" prefHeight="7.0" prefWidth="106.0" style="-fx-background-color: #4ea44e;" />
-                        <Hyperlink fx:id="backButton" layoutX="27.0" layoutY="324.0" prefHeight="23.0" prefWidth="54.0" text="Back">
+                        <Hyperlink fx:id="backButton" layoutX="25.0" layoutY="322.0" text="Back">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -85,7 +85,7 @@
                               <Font name="Calibri Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Pane layoutX="27.0" layoutY="124.0" prefHeight="8.0" prefWidth="170.0" style="-fx-background-color: #e7693b;" />
+                        <Pane layoutX="27.0" layoutY="124.0" prefHeight="8.0" prefWidth="190.0" style="-fx-background-color: #e7693b;" />
                         <Label layoutX="27.0" layoutY="131.0" text="Worm">
                            <font>
                               <Font name="Calibri" size="22.0" />
@@ -96,7 +96,7 @@
                               <Font name="Calibri Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Pane layoutX="27.0" layoutY="154.0" prefHeight="8.0" prefWidth="170.0" style="-fx-background-color: #e3971c;" />
+                        <Pane layoutX="27.0" layoutY="154.0" prefHeight="8.0" prefWidth="190.0" style="-fx-background-color: #e3971c;" />
                         <Label layoutX="27.0" layoutY="161.0" text="Meat">
                            <font>
                               <Font name="Calibri" size="22.0" />
@@ -107,7 +107,7 @@
                               <Font name="Calibri Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Pane layoutX="27.0" layoutY="184.0" prefHeight="7.0" prefWidth="170.0" style="-fx-background-color: #51a751;" />
+                        <Pane layoutX="27.0" layoutY="184.0" prefHeight="7.0" prefWidth="190.0" style="-fx-background-color: #51a751;" />
                         <Label layoutX="27.0" layoutY="191.0" text="Root">
                            <font>
                               <Font name="Calibri" size="22.0" />
@@ -118,7 +118,7 @@
                               <Font name="Calibri Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Pane layoutX="27.0" layoutY="214.0" prefHeight="7.0" prefWidth="170.0" style="-fx-background-color: #43a0bb;" />
+                        <Pane layoutX="27.0" layoutY="214.0" prefHeight="7.0" prefWidth="190.0" style="-fx-background-color: #43a0bb;" />
                         <Label layoutX="27.0" layoutY="221.0" text="Fungus">
                            <font>
                               <Font name="Calibri" size="22.0" />
@@ -129,7 +129,7 @@
                               <Font name="Calibri Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Pane layoutX="27.0" layoutY="244.0" prefHeight="7.0" prefWidth="170.0" style="-fx-background-color: #485cc0;" />
+                        <Pane layoutX="27.0" layoutY="244.0" prefHeight="7.0" prefWidth="190.0" style="-fx-background-color: #485cc0;" />
                         <Label layoutX="27.0" layoutY="251.0" text="Seed">
                            <font>
                               <Font name="Calibri" size="22.0" />
@@ -140,7 +140,7 @@
                               <Font name="Calibri Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Pane layoutX="27.0" layoutY="274.0" prefHeight="7.0" prefWidth="170.0" style="-fx-background-color: #8f41b9;" />
+                        <Pane layoutX="27.0" layoutY="274.0" prefHeight="7.0" prefWidth="190.0" style="-fx-background-color: #8f41b9;" />
                         <PieChart fx:id="foragesChart" layoutX="265.0" layoutY="16.0" prefHeight="340.0" prefWidth="421.0" />
                      </children>
                   </AnchorPane>
